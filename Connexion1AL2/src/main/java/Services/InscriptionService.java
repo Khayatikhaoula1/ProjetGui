@@ -1,3 +1,4 @@
+
 package Services;
 
 import Entites.Inscription;
@@ -98,5 +99,4 @@ public class InscriptionService {
             System.err.println("Erreur lors de la récupération des inscriptions de l'étudiant : " + e.getMessage());
         }
         return inscriptions;
-    }
-}
+    }}

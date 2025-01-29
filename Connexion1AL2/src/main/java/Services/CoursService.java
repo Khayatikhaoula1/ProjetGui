@@ -35,7 +35,6 @@ public class CoursService {
         }
         return null;
     }
-
     // Récupérer tous les cours
     public List<Cours> getAllCours() {
         List<Cours> coursList = new ArrayList<>();

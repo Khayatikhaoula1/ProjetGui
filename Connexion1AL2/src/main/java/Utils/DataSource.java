@@ -4,7 +4,7 @@ public class DataSource {
 
     private Connection conn;
 
-    private  String url = "jdbc:mysql://localhost:3306/guiprojectdb2";
+    private  String url = "jdbc:mysql://localhost:3306/universite";
     private  String user = "root";
     private  String pass = "";
     private static DataSource data;

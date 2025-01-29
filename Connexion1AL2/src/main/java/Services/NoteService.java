@@ -1,5 +1,6 @@
 package Services;
 
+import Entites.Inscription;
 import Entites.Note;
 import Utils.DataSource;
 import java.sql.*;
@@ -16,7 +17,7 @@ public class NoteService {
     }
 
     public boolean addNote(Note note) {
-        String query = "INSERT INTO Notes(id_etudiant, id_cours, note, date_evaluation) VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO Notes(etudiant_id, cours_id, note, date_evaluation) VALUES(?, ?, ?, ?)";
         try (PreparedStatement ps = DataSource.getInstance().getConn().prepareStatement(query)) {  // Utilisation de DataSource.getInstance()
             ps.setInt(1, note.getEtudiantId());
             ps.setInt(2, note.getCoursId());  // Utilisation du coursId

@@ -1,5 +1,6 @@
 package Services;
 
+import Entites.Role;
 import Entites.User;
 import Utils.DataSource;
 
@@ -15,12 +16,12 @@ public class UserService {
     }
 
     // Créer un utilisateur
-    public boolean createUser(String username, String password, String role) throws SQLException {
-        String query = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
+    public boolean createUser(String username, String password, int role, String email) throws SQLException {
+        String query = "INSERT INTO users (username, password, role_id) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, username);
             stmt.setString(2, password);
-            stmt.setString(3, role);
+            stmt.setInt(3, role);
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
         }
@@ -36,8 +37,8 @@ public class UserService {
                         rs.getInt("id"),
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getString("role")
-                );
+                        rs.getInt("role"),
+                        rs.getString("email"));
                 users.add(user);
             }
         }
@@ -45,20 +46,40 @@ public class UserService {
     }
 
     // Récupérer un utilisateur par son ID
-    public User getUserById(int userId) throws SQLException {
+    public User getUserById(int userId) {
         String query = "SELECT * FROM users WHERE id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setInt(1, userId);
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return new User(
-                            rs.getInt("id"),
-                            rs.getString("username"),
-                            rs.getString("password"),
-                            rs.getString("role")
-                    );
-                }
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                // Récupérer le rôle de l'utilisateur
+                int roleId = rs.getInt("role_id");
+                Role role = getRoleById(roleId);  // Méthode pour récupérer le rôle
+                return new User(
+                        rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getInt("role"),
+                        rs.getString("email")
+                );
             }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération de l'utilisateur : " + e.getMessage());
+        }
+        return null;
+    }
+
+    // Méthode pour récupérer un rôle par son ID
+    private Role getRoleById(int roleId) {
+        String query = "SELECT * FROM roles WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, roleId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Role(rs.getInt("id"), rs.getString("nom"));
+            }
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la récupération du rôle : " + e.getMessage());
         }
         return null;
     }

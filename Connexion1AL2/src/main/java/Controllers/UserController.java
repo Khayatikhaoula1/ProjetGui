@@ -1,5 +1,6 @@
 package Controllers;
 
+import Entites.Role;
 import Services.UserService;
 import Entites.User;
 import java.sql.SQLException;
@@ -13,9 +14,9 @@ public class UserController {
     }
 
     // Méthode pour créer un utilisateur
-    public boolean createUser(String username, String password, String role) {
+    public boolean createUser(String username, String password, int role, String email) {
         try {
-            return userService.createUser(username, password, role);
+            return userService.createUser(username, password, role,email);
         } catch (SQLException e) {
             System.err.println("Erreur lors de la création de l'utilisateur: " + e.getMessage());
             return false;
