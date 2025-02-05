@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AbsenceController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AbsenceController">
     <top>
         <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
-            <Label text="Gestion des Notes" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Gestion des Notes">
                 <font>
                     <Font name="Segoe UI" size="24.0" />
                 </font>
@@ -26,13 +19,13 @@
             <HBox spacing="10">
                 <TextField promptText="Nom de l'étudiant" styleClass="input-field" />
                 <TextField promptText="Note" styleClass="input-field" />
-                <Button text="Ajouter" styleClass="action-button" />
+                <Button styleClass="action-button" text="Ajouter" />
             </HBox>
             <TableView styleClass="data-table">
                 <columns>
-                    <TableColumn text="Nom de l'étudiant" />
-                    <TableColumn text="Note" />
-                    <TableColumn text="Actions" />
+                    <TableColumn prefWidth="123.99999618530273" text="Nom de l'étudiant" />
+                    <TableColumn minWidth="6.0" prefWidth="94.0" text="Note" />
+                    <TableColumn prefWidth="93.19999694824219" text="Actions" />
                 </columns>
             </TableView>
         </VBox>

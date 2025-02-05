@@ -1,13 +1,11 @@
 package Utils;
 
+import Entites.*;
 import Services.UserService;
 import Services.NoteService;
 import Services.InscriptionService;
 import Services.AbsenceService;
-import Entites.User;
-import Entites.Note;
-import Entites.Inscription;
-import Entites.Absence;
+
 import java.sql.Date;
 import java.util.List;
 
@@ -17,22 +15,26 @@ public class Test {
         UserService userService = new UserService();
 
         try {
-            // Ajouter un utilisateur
-            User newUser = new User(0, "dpNaliskdilbm", "password123", 1, "sirine@test.com");
-            userService.createUser(newUser.getUsername(), newUser.getPassword(), newUser.getRole(), newUser.getEmail());  // Correction ici
-            System.out.println("Utilisateur ajouté avec succès !");
+            // 🔹 Récupérer le rôle "Admin" existant
+            Role roleAdmin = userService.getRoleByName("Administrateur");
 
-            // Récupérer un utilisateur par ID
-            User fetchedUser = userService.getUserById(23); // L'ID du nouvel utilisateur est 23 (selon tes données)
-            if (fetchedUser != null) {
-                System.out.println("Utilisateur trouvé : " + fetchedUser.getUsername());
+            if (roleAdmin != null) {
+                // 🔹 Créer et insérer un utilisateur avec ce rôle
+                User newUser = new User(10, "axdminUuser", "password123", roleAdmin, "adminssd@test.com");
+                boolean success = userService.createUser(newUser.getUsername(), newUser.getPassword(), newUser.getRole(), newUser.getEmail());
+
+                if (success) {
+                    System.out.println("✅ Utilisateur ajouté avec succès !");
+                } else {
+                    System.out.println("❌ Erreur lors de l'ajout de l'utilisateur.");
+                }
             } else {
-                System.out.println("Aucun utilisateur trouvé avec cet ID.");
+                System.out.println("❌ Le rôle 'Admin' n'existe pas dans la base !");
             }
 
             // Tester les notes avec NoteService
             NoteService noteService = new NoteService();
-            Note newNote = new Note(3, 5, 3, 85.5, new Date(System.currentTimeMillis())); // (ID étudiant, ID cours, note)
+            Note newNote = new Note(3, 5, 3, 18.5, new Date(System.currentTimeMillis()));
             noteService.addNote(newNote);  // Appel à la méthode addNote() de NoteService
             System.out.println("Note ajoutée avec succès !");
 

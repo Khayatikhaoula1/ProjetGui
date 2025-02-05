@@ -1,8 +1,9 @@
 package Controllers;
 
 import Entites.Role;
-import Services.UserService;
 import Entites.User;
+import Services.UserService;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -10,13 +11,20 @@ public class UserController {
     private UserService userService;
 
     public UserController() {
-        this.userService = new UserService();  // Assure-toi d'utiliser le bon constructeur ici
+        this.userService = new UserService();
     }
 
     // Méthode pour créer un utilisateur
-    public boolean createUser(String username, String password, int role, String email) {
+    public boolean createUser(String username, String password, int roleId, String email) {
         try {
-            return userService.createUser(username, password, role,email);
+            // Récupérer l'objet Role avec l'ID
+            Role role = userService.getRoleById(roleId);
+            if (role != null) {
+                return userService.createUser(username, password, role, email);
+            } else {
+                System.err.println("Le rôle spécifié est invalide.");
+                return false;
+            }
         } catch (SQLException e) {
             System.err.println("Erreur lors de la création de l'utilisateur: " + e.getMessage());
             return false;
@@ -35,12 +43,7 @@ public class UserController {
 
     // Méthode pour obtenir un utilisateur par son ID
     public User getUserById(int userId) {
-        try {
-            return userService.getUserById(userId);
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la récupération de l'utilisateur: " + e.getMessage());
-            return null;
-        }
+        return userService.getUserById(userId);
     }
 
     // Méthode pour supprimer un utilisateur
