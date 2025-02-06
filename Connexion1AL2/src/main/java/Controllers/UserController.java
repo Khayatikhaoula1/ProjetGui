@@ -35,12 +35,10 @@ public class UserController {
 
     // Méthode pour obtenir un utilisateur par son ID
     public User getUserById(int userId) {
-        try {
+         {
             return userService.getUserById(userId);
-        } catch (SQLException e) {
-            System.err.println("Erreur lors de la récupération de l'utilisateur: " + e.getMessage());
-            return null;
         }
+
     }
 
     // Méthode pour supprimer un utilisateur

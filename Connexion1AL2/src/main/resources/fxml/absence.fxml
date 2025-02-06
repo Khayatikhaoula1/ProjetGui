@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AbsenceController">
+    <top>
+        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
+            <Label text="Gestion des Absences" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;">
+                <font>
+                    <Font name="Segoe UI" size="24.0" />
+                </font>
+            </Label>
+        </HBox>
+    </top>
+    <center>
+        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F4F9; -fx-padding: 20;">
+            <HBox spacing="10">
+                <TextField fx:id="studentIdField" promptText="ID Étudiant" styleClass="input-field" />
+                <TextField fx:id="dateField" promptText="Date (YYYY-MM-DD)" styleClass="input-field" />
+                <TextField fx:id="reasonField" promptText="Motif" styleClass="input-field" />
+                <Button text="Ajouter" onAction="#addAbsence" styleClass="action-button" />
+            </HBox>
+            <TableView fx:id="absenceTable" styleClass="data-table">
+                <columns>
+                    <TableColumn text="ID Absence" fx:id="colId" />
+                    <TableColumn text="ID Étudiant" fx:id="colStudentId" />
+                    <TableColumn text="Date" fx:id="colDate" />
+                    <TableColumn text="Motif" fx:id="colReason" />
+                    <TableColumn text="Actions" fx:id="colActions" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>
