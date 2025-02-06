@@ -1,14 +1,15 @@
 package Controllers;
 
-import Services.AbsenceService;
 import Entites.Absence;
-import java.util.List;
+import Services.AbsenceService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.util.List;
 
 public class AbsenceController {
 

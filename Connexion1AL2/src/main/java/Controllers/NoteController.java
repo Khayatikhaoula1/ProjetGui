@@ -1,7 +1,8 @@
 package Controllers;
 
-import Services.NoteService;
 import Entites.Note;
+import Services.NoteService;
+
 import java.util.List;
 
 public class NoteController {

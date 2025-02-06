@@ -1,7 +1,8 @@
 package Controllers;
 
-import Services.InscriptionService;
 import Entites.Inscription;
+import Services.InscriptionService;
+
 import java.util.List;
 
 public class InscriptionController {
