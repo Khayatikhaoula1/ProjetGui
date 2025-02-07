@@ -1,0 +1,54 @@
+Index: Connexion1AL2/src/main/resources/fxml/main.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n<?import javafx.scene.effect.DropShadow?>\r\n<?import javafx.scene.effect.Glow?>\r\n\r\n<BorderPane xmlns=\"http://javafx.com/javafx/8\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"Controllers.MainController\">\r\n    <top>\r\n        <HBox style=\"-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;\">\r\n            <ImageView fitHeight=\"50.0\" fitWidth=\"50.0\">\r\n                <Image url=\"@../icons/logo.png\" />\r\n            </ImageView>\r\n            <Label text=\"NextGenEdu\" style=\"-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;\">\r\n                <font>\r\n                    <Font name=\"Segoe UI\" size=\"28.0\" />\r\n                </font>\r\n                <effect>\r\n                    <Glow level=\"0.8\" />\r\n                </effect>\r\n            </Label>\r\n            <HBox spacing=\"20\" alignment=\"CENTER_RIGHT\" HBox.hgrow=\"ALWAYS\">\r\n                <Label fx:id=\"loggedInUserLabel\" text=\"Welcome, User!\" style=\"-fx-text-fill: white; -fx-font-size: 16px;\" />\r\n                <Button text=\"Logout\" style=\"-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;\" onAction=\"#handleLogout\" />\r\n            </HBox>\r\n        </HBox>\r\n    </top>\r\n    <center>\r\n        <VBox alignment=\"CENTER\" spacing=\"20\" style=\"-fx-background-color: #F4F4F9;\">\r\n            <Button text=\"Gestion des Étudiants\" styleClass=\"menu-button\" onAction=\"#handleStudentManagement\" />\r\n            <Button text=\"Gestion des Cours\" styleClass=\"menu-button\" onAction=\"#handleCourseManagement\" />\r\n            <Button text=\"Gestion des Utilisateurs\" styleClass=\"menu-button\" onAction=\"#handleUserManagement\" />\r\n            <Button text=\"Gestion des Notes\" styleClass=\"menu-button\" onAction=\"#handleGradeManagement\" />\r\n            <Button text=\"Authentification\" styleClass=\"menu-button\" onAction=\"#handleAuth\" />\r\n        </VBox>\r\n    </center>\r\n</BorderPane>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Connexion1AL2/src/main/resources/fxml/main.fxml b/Connexion1AL2/src/main/resources/fxml/main.fxml
+--- a/Connexion1AL2/src/main/resources/fxml/main.fxml	(revision 63a3762548f3fca90797dc7f80992768b3ede808)
++++ b/Connexion1AL2/src/main/resources/fxml/main.fxml	(date 1738937623161)
+@@ -8,16 +8,15 @@
+ <?import javafx.scene.layout.HBox?>
+ <?import javafx.scene.layout.VBox?>
+ <?import javafx.scene.text.Font?>
+-<?import javafx.scene.effect.DropShadow?>
+ <?import javafx.scene.effect.Glow?>
+ 
+ <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
+     <top>
+-        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
++        <HBox styleClass="top-bar">
+             <ImageView fitHeight="50.0" fitWidth="50.0">
+                 <Image url="@../icons/logo.png" />
+             </ImageView>
+-            <Label text="NextGenEdu" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;">
++            <Label text="NextGenEdu" styleClass="app-title">
+                 <font>
+                     <Font name="Segoe UI" size="28.0" />
+                 </font>
+@@ -26,18 +25,19 @@
+                 </effect>
+             </Label>
+             <HBox spacing="20" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+-                <Label fx:id="loggedInUserLabel" text="Welcome, User!" style="-fx-text-fill: white; -fx-font-size: 16px;" />
+-                <Button text="Logout" style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#handleLogout" />
++                <Label fx:id="loggedInUserLabel" text="Welcome, User!" styleClass="user-label" />
++                <Button text="Logout" styleClass="logout-button" onAction="#handleLogout" />
+             </HBox>
+         </HBox>
+     </top>
+     <center>
+-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F4F9;">
++        <VBox alignment="CENTER" spacing="20" styleClass="menu-container">
+             <Button text="Gestion des Étudiants" styleClass="menu-button" onAction="#handleStudentManagement" />
+             <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCourseManagement" />
+             <Button text="Gestion des Utilisateurs" styleClass="menu-button" onAction="#handleUserManagement" />
+             <Button text="Gestion des Notes" styleClass="menu-button" onAction="#handleGradeManagement" />
+             <Button text="Authentification" styleClass="menu-button" onAction="#handleAuth" />
++            <Button text="examen" styleClass="menu-button" onAction="#handleExamenManagement" />
+         </VBox>
+     </center>
+-</BorderPane>
+\ No newline at end of file
++</BorderPane>
