@@ -77,4 +77,43 @@ public class CoursService {
         }
         return courses;
     }
+    // Ajouter un cours
+    public void ajouterCours(Cours cours) {
+        String query = "INSERT INTO cours (nom, description, professeur_id) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, cours.getNom());
+            stmt.setString(2, cours.getDescription());
+            stmt.setInt(3, cours.getProfesseurId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'ajout du cours : " + e.getMessage());
+        }
+    }
+
+    // Modifier un cours
+    public void modifierCours(Cours cours) {
+        String query = "UPDATE cours SET nom = ?, description = ?, professeur_id = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, cours.getNom());
+            stmt.setString(2, cours.getDescription());
+            stmt.setInt(3, cours.getProfesseurId());
+            stmt.setInt(4, cours.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la modification du cours : " + e.getMessage());
+        }
+    }
+
+    // Supprimer un cours
+    public void supprimerCours(int id) {
+        String query = "DELETE FROM cours WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de la suppression du cours : " + e.getMessage());
+        }
+    }
+
+
 }

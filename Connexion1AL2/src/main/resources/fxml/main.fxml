@@ -34,9 +34,10 @@
     <center>
         <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F4F9;">
             <Button text="Gestion des Étudiants" styleClass="menu-button" onAction="#handleStudentManagement" />
-            <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCourseManagement" />
+            <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCoursManagement" />
             <Button text="Gestion des Utilisateurs" styleClass="menu-button" onAction="#handleUserManagement" />
             <Button text="Gestion des Notes" styleClass="menu-button" onAction="#handleGradeManagement" />
+            <Button text="Gestion des inscriptions" styleClass="menu-button" onAction="#handleInscriptionManagement" />
             <Button text="Authentification" styleClass="menu-button" onAction="#handleAuth" />
         </VBox>
     </center>
