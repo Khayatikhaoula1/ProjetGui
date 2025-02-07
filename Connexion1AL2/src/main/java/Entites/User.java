@@ -4,16 +4,18 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private int role;
+    private Role role;
     private String email;
 
 
     // Constructeur
-    public User(int id, String username, String password, int role, String email) {
+    public User(int id, String username, String password, Role role, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.email = email;
+
     }
 
     // Getters et Setters
@@ -21,13 +23,7 @@ public class User {
         return id;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -49,13 +45,19 @@ public class User {
         this.password = password;
     }
 
-    public int getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(int role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

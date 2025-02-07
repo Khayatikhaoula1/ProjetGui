@@ -1,7 +1,8 @@
 package Controllers;
 
-import Services.CoursService;
 import Entites.Cours;
+import Services.CoursService;
+
 import java.util.List;
 
 public class CoursController {

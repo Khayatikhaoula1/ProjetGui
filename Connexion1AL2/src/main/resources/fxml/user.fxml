@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserController">
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UserController">
     <top>
         <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
-            <Label text="Gestion des Utilisateurs" style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;">
+            <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Gestion des Utilisateurs">
                 <font>
                     <Font name="Segoe UI" size="24.0" />
                 </font>
@@ -26,13 +19,14 @@
             <HBox spacing="10">
                 <TextField promptText="Nom d'utilisateur" styleClass="input-field" />
                 <TextField promptText="Rôle" styleClass="input-field" />
-                <Button text="Ajouter" styleClass="action-button" />
+                <Button styleClass="action-button" text="Ajouter" />
             </HBox>
             <TableView styleClass="data-table">
                 <columns>
-                    <TableColumn text="Nom d'utilisateur" />
-                    <TableColumn text="Rôle" />
-                    <TableColumn text="Actions" />
+                    <TableColumn prefWidth="117.0" text="Nom d'utilisateur" />
+                    <TableColumn prefWidth="62.20001220703125" text="Email" />
+                    <TableColumn prefWidth="90.0" text="Role" />
+               <TableColumn prefWidth="105.20001220703125" text="Actions" />
                 </columns>
             </TableView>
         </VBox>
