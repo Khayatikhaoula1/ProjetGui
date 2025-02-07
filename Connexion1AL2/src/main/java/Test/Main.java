@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/AjouterUser.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/main.fxml"));
        // FXMLLoader loader=new FXMLLoader(getClass().getResource("/AfficherUser.fxml"));
 
         Parent root=loader.load();

@@ -1,0 +1,160 @@
+Index: Connexion1AL2/src/main/java/Services/AbsenceService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\npackage Services;\r\n\r\nimport Entites.Absence;\r\nimport Utils.DataSource;\r\nimport java.sql.*;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class AbsenceService {\r\n\r\n    private Connection connection;\r\n\r\n    // Utilisation du DataSource pour la gestion de la connexion\r\n    public AbsenceService() {\r\n        this.connection = DataSource.getInstance().getConn();\r\n    }\r\n\r\n    // Récupérer une absence par son ID\r\n    public Absence getAbsenceById(int id) {\r\n        String query = \"SELECT * FROM absences WHERE id = ?\";\r\n        try (PreparedStatement stmt = connection.prepareStatement(query)) {\r\n            stmt.setInt(1, id);\r\n            ResultSet rs = stmt.executeQuery();\r\n            if (rs.next()) {\r\n                int etudiantId = rs.getObject(\"etudiant_id\") != null ? rs.getInt(\"etudiant_id\") : 0;\r\n                return new Absence(\r\n                        rs.getInt(\"id\"),\r\n                        etudiantId,\r\n                        rs.getDate(\"date\"),\r\n                        rs.getString(\"motif\")\r\n                );\r\n            }\r\n        } catch (SQLException e) {\r\n            System.err.println(\"Erreur lors de la récupération de l'absence : \" + e.getMessage());\r\n        }\r\n        return null;\r\n    }\r\n\r\n    // Récupérer toutes les absences\r\n    public List<Absence> getAllAbsences() {\r\n        List<Absence> absencesList = new ArrayList<>();\r\n        String query = \"SELECT * FROM absences\";\r\n        try (Statement stmt = connection.createStatement()) {\r\n            ResultSet rs = stmt.executeQuery(query);\r\n            while (rs.next()) {\r\n                int etudiantId = rs.getObject(\"etudiant_id\") != null ? rs.getInt(\"etudiant_id\") : 0;\r\n                absencesList.add(new Absence(\r\n                        rs.getInt(\"id\"),\r\n                        etudiantId,\r\n                        rs.getDate(\"date\"),\r\n                        rs.getString(\"motif\")\r\n                ));\r\n            }\r\n        } catch (SQLException e) {\r\n            System.err.println(\"Erreur lors de la récupération des absences : \" + e.getMessage());\r\n        }\r\n        return absencesList;\r\n    }\r\n\r\n    // Ajouter une absence\r\n    public void addAbsence(Absence absence) {\r\n        String query = \"INSERT INTO absences (etudiant_id, date, motif) VALUES (?, ?, ?)\";\r\n        try (PreparedStatement stmt = connection.prepareStatement(query)) {\r\n            stmt.setInt(1, absence.getEtudiantId());\r\n            stmt.setDate(2, absence.getDate()); // Passe l'objet Date directement\r\n            stmt.setString(3, absence.getMotif());\r\n            stmt.executeUpdate();\r\n        } catch (SQLException e) {\r\n            System.err.println(\"Erreur lors de l'ajout de l'absence : \" + e.getMessage());\r\n        }\r\n    }\r\n\r\n    // Supprimer une absence par son ID\r\n    public void deleteAbsence(int id) {\r\n        String query = \"DELETE FROM absences WHERE id = ?\";\r\n        try (PreparedStatement stmt = connection.prepareStatement(query)) {\r\n            stmt.setInt(1, id);\r\n            stmt.executeUpdate();\r\n        } catch (SQLException e) {\r\n            System.err.println(\"Erreur lors de la suppression de l'absence : \" + e.getMessage());\r\n        }\r\n    }\r\n\r\n    // Récupérer les absences d'un étudiant par son ID\r\n    public List<Absence> getAbsencesByStudent(int etudiantId) {\r\n        List<Absence> absences = new ArrayList<>();\r\n        String query = \"SELECT * FROM absences WHERE etudiant_id = ?\";\r\n        try (PreparedStatement stmt = connection.prepareStatement(query)) {\r\n            stmt.setInt(1, etudiantId);\r\n            ResultSet rs = stmt.executeQuery();\r\n            while (rs.next()) {\r\n                absences.add(new Absence(\r\n                        rs.getInt(\"id\"),\r\n                        rs.getInt(\"etudiant_id\"),\r\n                        rs.getDate(\"date\"),\r\n                        rs.getString(\"motif\")\r\n                ));\r\n            }\r\n        } catch (SQLException e) {\r\n            System.err.println(\"Erreur lors de la récupération des absences de l'étudiant : \" + e.getMessage());\r\n        }\r\n        return absences;\r\n    }\r\n} 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Connexion1AL2/src/main/java/Services/AbsenceService.java b/Connexion1AL2/src/main/java/Services/AbsenceService.java
+--- a/Connexion1AL2/src/main/java/Services/AbsenceService.java	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
++++ b/Connexion1AL2/src/main/java/Services/AbsenceService.java	(date 1738917077341)
+@@ -70,6 +70,18 @@
+             System.err.println("Erreur lors de l'ajout de l'absence : " + e.getMessage());
+         }
+     }
++    public void updateAbsence(Absence absence) {
++        String query = "UPDATE absences SET etudiant_id = ?, date = ?, motif = ? WHERE id = ?";
++        try (PreparedStatement stmt = connection.prepareStatement(query)) {
++            stmt.setInt(1, absence.getEtudiantId());
++            stmt.setDate(2, absence.getDate());
++            stmt.setString(3, absence.getMotif());
++            stmt.setInt(4, absence.getId());
++            stmt.executeUpdate();
++        } catch (SQLException e) {
++            System.err.println("Erreur lors de la modification de l'absence : " + e.getMessage());
++        }
++    }
+ 
+     // Supprimer une absence par son ID
+     public void deleteAbsence(int id) {
+Index: Connexion1AL2/src/main/java/Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Connexion1AL2/src/main/java/Test.java b/Connexion1AL2/src/main/java/Test.java
+deleted file mode 100644
+--- a/Connexion1AL2/src/main/java/Test.java	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
++++ /dev/null	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
+@@ -1,49 +0,0 @@
+-import java.sql.*;
+-
+-public class Test {
+-
+-    private static Connection con;
+-    private static String url = "jdbc:mysql://localhost:3306/esprit1al2";
+-    private static String user = "root";
+-    private static String pass = "";
+-    private static Statement stmt;
+-
+-    public static void main(String[] args) {
+-
+-        try {
+-            con = DriverManager.getConnection(url, user, pass);
+-            System.out.println(con);
+-            System.out.println("connexion établie");
+-        } catch (SQLException e) {
+-            System.out.println(e);
+-        }
+-        try {
+-            stmt = con.createStatement();
+-        } catch (SQLException e) {
+-            System.out.println(e);
+-        }
+-        String req = "INSERT INTO `personne` (`id`, `nom`, `prenom`, `age`) VALUES (NULL, 'ben fadhel', 'sana', '19');";
+-
+-        try {
+-            stmt.executeUpdate(req);
+-            System.out.println("personne ajoutée");
+-        } catch (SQLException e) {
+-            System.out.println(e);
+-        }
+-        try {
+-            ResultSet rs=stmt.executeQuery("select  * from personne");
+-            while (rs.next()) {
+-                int id=rs.getInt(1);
+-                String nom=rs.getString("nom");
+-                String prenom=rs.getString(3);
+-                int age=rs.getInt("age");
+-
+-                System.out.println("id :"+id+"nom : "+nom+" prenom :"+prenom+" age : "+age);
+-            }
+-        } catch (SQLException e) {
+-            System.out.println(e);
+-        }
+-
+-
+-    }
+-}
+Index: Connexion1AL2/src/main/resources/AjouterUser.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Connexion1AL2/src/main/resources/AjouterUser.fxml b/Connexion1AL2/src/main/resources/AjouterUser.fxml
+deleted file mode 100644
+--- a/Connexion1AL2/src/main/resources/AjouterUser.fxml	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
++++ /dev/null	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
+@@ -1,33 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.Button?>
+-<?import javafx.scene.control.Label?>
+-<?import javafx.scene.control.TextField?>
+-<?import javafx.scene.layout.AnchorPane?>
+-<?import javafx.scene.text.Font?>
+-
+-
+-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterPersonneController">
+-   <children>
+-      <Label layoutX="169.0" layoutY="136.0" text="nom :">
+-         <font>
+-            <Font name="System Bold Italic" size="18.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="169.0" layoutY="192.0" text="prenom :">
+-         <font>
+-            <Font name="System Bold Italic" size="18.0" />
+-         </font>
+-      </Label>
+-      <Label layoutX="169.0" layoutY="252.0" text="age :">
+-         <font>
+-            <Font name="System Bold Italic" size="18.0" />
+-         </font>
+-      </Label>
+-      <TextField fx:id="txtnom" layoutX="310.0" layoutY="137.0" />
+-      <TextField fx:id="txtprenom" layoutX="311.0" layoutY="193.0" />
+-      <TextField fx:id="txtage" layoutX="311.0" layoutY="253.0" />
+-      <Button layoutX="386.0" layoutY="324.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+-      <Button fx:id="afficher" layoutX="461.0" layoutY="324.0" mnemonicParsing="false" onAction="#afficher" text="Afficher" />
+-   </children>
+-</AnchorPane>
+Index: Connexion1AL2/src/main/resources/AfficherUser.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Connexion1AL2/src/main/resources/AfficherUser.fxml b/Connexion1AL2/src/main/resources/AfficherUser.fxml
+deleted file mode 100644
+--- a/Connexion1AL2/src/main/resources/AfficherUser.fxml	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
++++ /dev/null	(revision 0ce260b3695607c0e66f768e537b135f2b545ada)
+@@ -1,19 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<?import javafx.scene.control.TableColumn?>
+-<?import javafx.scene.control.TableView?>
+-<?import javafx.scene.layout.AnchorPane?>
+-
+-
+-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AfficherUserController">
+-   <children>
+-      <TableView fx:id="tableview" layoutX="178.0" layoutY="82.0" prefHeight="209.0" prefWidth="304.0">
+-        <columns>
+-          <TableColumn fx:id="colid" prefWidth="75.0" text="id" />
+-          <TableColumn fx:id="colnom" prefWidth="75.0" text="nom" />
+-            <TableColumn fx:id="colprenom" prefWidth="75.0" text="prenom" />
+-            <TableColumn fx:id="colage" prefWidth="75.0" text="age" />
+-        </columns>
+-      </TableView>
+-   </children>
+-</AnchorPane>
