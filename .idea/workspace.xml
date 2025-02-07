@@ -5,11 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39203a9e-71f5-441e-888f-d327687b1fc0" name="Changes" comment="fixed sql error (contrainte de note &lt;20)">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Examen.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/examen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Test/Main.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/CoursController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/CoursController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/InscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/CoursService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/CoursService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Utils/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Utils/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/course.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/course.fxml" afterDir="false" />
+>>>>>>> main
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +33,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+<<<<<<< HEAD
+=======
+        <option value="CSS File" />
+>>>>>>> main
         <option value="FxmlFile" />
       </list>
     </option>
@@ -46,7 +62,11 @@
   }
 }</component>
   <component name="ProblemsViewState">
+<<<<<<< HEAD
     <option name="selectedTabId" value="ProjectErrors" />
+=======
+    <option name="selectedTabId" value="CurrentFile" />
+>>>>>>> main
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -62,19 +82,32 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.Test.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+<<<<<<< HEAD
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Nabegh-B&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/anene/Downloads/openjfx-23.0.2_windows-x64_bin-sdk/javafx-sdk-23.0.2/lib&quot;,
+=======
+    &quot;git-widget-placeholder&quot;: &quot;Yassine-B&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ychan/Downloads/openjfx-23.0.2_windows-x64_bin-sdk/javafx-sdk-23.0.2/bin&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+>>>>>>> main
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+<<<<<<< HEAD
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+=======
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.20737328&quot;,
+>>>>>>> main
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -85,12 +118,26 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
+<<<<<<< HEAD
     <configuration name="Main" type="Application" factoryName="Application" activateToolWindowBeforeRun="false">
+=======
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+>>>>>>> main
       <option name="ALTERNATIVE_JRE_PATH" value="jbrsdk-17" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Test.Main" />
       <module name="Connexion1AL2" />
+<<<<<<< HEAD
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\anene\Downloads\openjfx-23.0.2_windows-x64_bin-sdk\javafx-sdk-23.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+=======
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\ychan\Downloads\openjfx-23.0.2_windows-x64_bin-sdk\javafx-sdk-23.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml " />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+>>>>>>> main
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,11 +162,13 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
+<<<<<<< HEAD
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -128,6 +177,8 @@
       </set>
     </attachedChunks>
   </component>
+=======
+>>>>>>> main
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -137,8 +188,17 @@
       <option name="presentableId" value="Default" />
       <updated>1738763706008</updated>
       <workItem from="1738763707704" duration="18247000" />
+<<<<<<< HEAD
       <workItem from="1738929116195" duration="2031000" />
       <workItem from="1738933370014" duration="1274000" />
+=======
+      <workItem from="1738920399031" duration="1973000" />
+      <workItem from="1738922380343" duration="78000" />
+      <workItem from="1738922476509" duration="21000" />
+      <workItem from="1738922535427" duration="3541000" />
+      <workItem from="1738926406574" duration="3310000" />
+      <workItem from="1738934399921" duration="973000" />
+>>>>>>> main
     </task>
     <task id="LOCAL-00001" summary="fixed sql error (contrainte de note &lt;20)">
       <option name="closed" value="true" />
@@ -153,6 +213,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed sql error (contrainte de note &lt;20)" />
