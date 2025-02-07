@@ -8,16 +8,15 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 
 <BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
     <top>
-        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
+        <HBox styleClass="top-bar">
             <ImageView fitHeight="50.0" fitWidth="50.0">
                 <Image url="@../icons/logo.png" />
             </ImageView>
-            <Label text="NextGenEdu" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;">
+            <Label text="NextGenEdu" styleClass="app-title">
                 <font>
                     <Font name="Segoe UI" size="28.0" />
                 </font>
@@ -26,18 +25,19 @@
                 </effect>
             </Label>
             <HBox spacing="20" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                <Label fx:id="loggedInUserLabel" text="Welcome, User!" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                <Button text="Logout" style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#handleLogout" />
+                <Label fx:id="loggedInUserLabel" text="Welcome, User!" styleClass="user-label" />
+                <Button text="Logout" styleClass="logout-button" onAction="#handleLogout" />
             </HBox>
         </HBox>
     </top>
     <center>
-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F4F9;">
+        <VBox alignment="CENTER" spacing="20" styleClass="menu-container">
             <Button text="Gestion des Étudiants" styleClass="menu-button" onAction="#handleStudentManagement" />
             <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCourseManagement" />
             <Button text="Gestion des Utilisateurs" styleClass="menu-button" onAction="#handleUserManagement" />
             <Button text="Gestion des Notes" styleClass="menu-button" onAction="#handleGradeManagement" />
             <Button text="Authentification" styleClass="menu-button" onAction="#handleAuth" />
+            <Button text="examen" styleClass="menu-button" onAction="#handleExamenManagement" />
         </VBox>
     </center>
 </BorderPane>
