@@ -5,20 +5,21 @@ import java.sql.Date;
 public class Note {
     private int id;
     private int etudiantId;
-    private int coursId;  // Ajout du coursId
+    private int coursId;
     private double note;
+    private double noteControle;
     private Date dateEvaluation;
+    private String resultat;
 
-    // Constructeur modifié pour accepter coursId
-    public Note(int id, int etudiantId, int coursId, double note, Date dateEvaluation) {
+    public Note(int id, int etudiantId, int coursId, double note, double noteControle, Date dateEvaluation) {
         this.id = id;
         this.etudiantId = etudiantId;
-        this.coursId = coursId;  // Initialisation de coursId
+        this.coursId = coursId;
         this.note = note;
+        this.noteControle = noteControle;
         this.dateEvaluation = dateEvaluation;
+        setResultat();
     }
-
-    // Getters et Setters pour chaque attribut
 
     public int getId() {
         return id;
@@ -50,6 +51,16 @@ public class Note {
 
     public void setNote(double note) {
         this.note = note;
+        setResultat();
+    }
+
+    public double getNoteControle() {
+        return noteControle;
+    }
+
+    public void setNoteControle(double noteControle) {
+        this.noteControle = noteControle;
+        setResultat();
     }
 
     public Date getDateEvaluation() {
@@ -58,5 +69,17 @@ public class Note {
 
     public void setDateEvaluation(Date dateEvaluation) {
         this.dateEvaluation = dateEvaluation;
+    }
+
+    public boolean isReussite() {
+        return note >= 10 || noteControle >= 10;
+    }
+
+    public String getResultat() {
+        return resultat;
+    }
+
+    private void setResultat() {
+        this.resultat = isReussite() ? "Admis" : "Refus";
     }
 }

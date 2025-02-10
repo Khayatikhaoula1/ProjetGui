@@ -24,12 +24,12 @@ public class MainController {
 
     @FXML
     private void handleUserManagement(ActionEvent event) throws IOException {
-        loadScene("user.fxml", "Gestion des Utilisateurs");
+        loadScene("UserView.fxml", "Gestion des Utilisateurs");
     }
 
     @FXML
     private void handleGradeManagement(ActionEvent event) throws IOException {
-        loadScene("grade.fxml", "Gestion des Notes");
+        loadScene("note.fxml", "Gestion des Notes");
     }
 
     @FXML

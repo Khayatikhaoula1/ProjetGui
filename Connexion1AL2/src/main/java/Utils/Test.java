@@ -20,7 +20,7 @@ public class Test {
 
             if (roleAdmin != null) {
                 // 🔹 Créer et insérer un utilisateur avec ce rôle
-                User newUser = new User(22, "yassoiiiiene", "password123", roleAdmin, "yasojunea@test.com");
+                User newUser = new User(22, "yagne", "password123", roleAdmin, "yasojdmuinea@test.com");
                 boolean success = userService.createUser(newUser.getUsername(), newUser.getPassword(), newUser.getRole(), newUser.getEmail());
 
                 if (success) {
@@ -34,7 +34,7 @@ public class Test {
 
             // Tester les notes avec NoteService
             NoteService noteService = new NoteService();
-            Note newNote = new Note(   7, 22, 3, 20, new Date(System.currentTimeMillis()));
+            Note newNote = new Note(7, 22, 3, 20, 15.5, new Date(System.currentTimeMillis()));
             noteService.addNote(newNote);  // Appel à la méthode addNote() de NoteService
             System.out.println("Note ajoutée avec succès !");
 
