@@ -18,6 +18,7 @@ public class UserService {
         }
     }
 
+
     // Créer un utilisateur
     public boolean createUser(String username, String password, Role role, String email) throws SQLException {
         String query = "INSERT INTO users (username, password, role_id, email) VALUES (?, ?, ?, ?)";
@@ -29,14 +30,25 @@ public class UserService {
             return stmt.executeUpdate() > 0;
         }
     }
+    public boolean updateUser(int userId, String username, String password, Role role, String email) throws SQLException {
+        String query = "UPDATE users SET username = ?, password = ?, role_id = ?, email = ? WHERE id = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            stmt.setInt(3, role.getId());
+            stmt.setString(4, email);
+            stmt.setInt(5, userId);
+            return stmt.executeUpdate() > 0;
+        }
+    }
 
-    // Récupérer tous les utilisateurs
     public List<User> getAllUsers() throws SQLException {
         List<User> users = new ArrayList<>();
         String query = "SELECT * FROM users";
         try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
-                Role role = getRoleById(rs.getInt("role"));
+                // Utilisez "role_id" pour récupérer l'ID du rôle
+                Role role = getRoleById(rs.getInt("role_id"));
                 User user = new User(
                         rs.getInt("id"),
                         rs.getString("username"),
@@ -57,7 +69,8 @@ public class UserService {
             stmt.setInt(1, userId);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                Role role = getRoleById(rs.getInt("role")); // Correctement récupérer le rôle
+                // Utilisez "role_id" ici aussi
+                Role role = getRoleById(rs.getInt("role_id"));
                 return new User(
                         rs.getInt("id"),
                         rs.getString("username"),
@@ -71,6 +84,9 @@ public class UserService {
         }
         return null;
     }
+
+
+
 
     // Méthode pour récupérer un rôle par son ID
     public Role getRoleById(int roleId) {

@@ -24,7 +24,7 @@ public class Main extends Application {
 
         // Créer la scène et l'associer au stage
         Scene scene = new Scene(root);
-        stage.setTitle("Cours");
+        stage.setTitle("Utilisateur");
         stage.setScene(scene);
 
         // Afficher la fenêtre
