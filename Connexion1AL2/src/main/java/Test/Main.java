@@ -16,13 +16,18 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/AjouterUser.fxml"));
-       // FXMLLoader loader=new FXMLLoader(getClass().getResource("/AfficherUser.fxml"));
+        // Charger le fichier FXML cours.fxml
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
 
-        Parent root=loader.load();
-        Scene scene=new Scene(root);
-        stage.setTitle("Ajouter");
+        // Charger le fichier FXML et obtenir le root (parent)
+        Parent root = loader.load();
+
+        // Créer la scène et l'associer au stage
+        Scene scene = new Scene(root);
+        stage.setTitle("Utilisateur");
         stage.setScene(scene);
+
+        // Afficher la fenêtre
         stage.show();
     }
 }
