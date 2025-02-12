@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Pos?>
+
+<?import javafx.scene.control.Hyperlink?>
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
+    <Label text="Connexion" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <TextField fx:id="usernameField" promptText="Nom d'utilisateur" />
+    <PasswordField fx:id="passwordField" promptText="Mot de passe" />
+    <Button text="Se connecter" onAction="#handleLogin" />
+    <Label fx:id="errorLabel" textFill="red" />
+    <Hyperlink text="Pas encore inscrit ? S'inscrire" onAction="#goToInscription" />
+
+</VBox>

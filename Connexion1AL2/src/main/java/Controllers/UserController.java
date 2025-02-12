@@ -73,6 +73,50 @@ public class UserController {
             showAlert("Erreur", "Impossible de charger les utilisateurs : " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
+    @FXML
+    private void handleUpdateUser(ActionEvent event) {
+        // Récupérer l'utilisateur sélectionné dans le tableau
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
+        if (selectedUser == null) {
+            showAlert("Aucune sélection", "Veuillez sélectionner un utilisateur à mettre à jour.", Alert.AlertType.WARNING);
+            return;
+        }
+
+        // Récupérer les valeurs des champs de saisie
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String email = emailField.getText();
+        String selectedRole = roleComboBox.getValue();
+
+        // Vérifier que tous les champs sont remplis
+        if (username.isEmpty() || password.isEmpty() || email.isEmpty() || selectedRole == null) {
+            showAlert("Erreur", "Tous les champs doivent être remplis pour la mise à jour.", Alert.AlertType.WARNING);
+            return;
+        }
+
+        // Récupérer l'ID du rôle correspondant
+        int roleId = getRoleIdByName(selectedRole);
+        if (roleId == -1) {
+            showAlert("Erreur", "Rôle invalide.", Alert.AlertType.ERROR);
+            return;
+        }
+
+        try {
+            // Récupérer l'objet Role depuis le service
+            Role role = userService.getRoleById(roleId);
+            // Appeler la méthode d'update dans le service
+            boolean success = userService.updateUser(selectedUser.getId(), username, password, role, email);
+            if (success) {
+                showAlert("Succès", "Utilisateur mis à jour avec succès.", Alert.AlertType.INFORMATION);
+                loadUsers();
+                clearFields();
+            } else {
+                showAlert("Erreur", "Échec de la mise à jour de l'utilisateur.", Alert.AlertType.ERROR);
+            }
+        } catch (SQLException e) {
+            showAlert("Erreur", "Erreur SQL : " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
 
     @FXML
     private void handleAddUser(ActionEvent event) {
@@ -156,4 +200,5 @@ public class UserController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
 }

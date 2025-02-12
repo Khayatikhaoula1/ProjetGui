@@ -27,7 +27,9 @@
             </Label>
             <HBox spacing="20" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                 <Label fx:id="loggedInUserLabel" text="Welcome, User!" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                <Button text="Logout" style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#handleLogout" />
+                <Button fx:id="loginLogoutButton" text="Login"
+                        style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;"
+                        onAction="#handleLoginLogout" />
             </HBox>
         </HBox>
     </top>
