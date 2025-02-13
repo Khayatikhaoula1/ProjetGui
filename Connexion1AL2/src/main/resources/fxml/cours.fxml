@@ -15,14 +15,7 @@
             stylesheets="/css/style.css">
 
     <!-- Barre latérale -->
-    <VBox fx:id="sidebar" prefWidth="200" prefHeight="500">
-        <ImageView fx:id="logo" fitWidth="150" fitHeight="100" />
-        <Label text="Gestion des Cours" styleClass="title-label"/>
-        <Button fx:id="btnDashboard" text="🏠 Dashboard" styleClass="sidebar-btn"/>
-        <Button fx:id="btnCours" text="📚 Cours" styleClass="sidebar-btn"/>
-        <Button fx:id="btnEtudiants" text="👨‍🎓 Étudiants" styleClass="sidebar-btn"/>
-        <Button fx:id="btnDeconnexion" text="🚪 Déconnexion" styleClass="sidebar-btn"/>
-    </VBox>
+
 
     <!-- Contenu principal -->
     <VBox fx:id="content" layoutX="320" layoutY="20" spacing="10" prefWidth="700">
@@ -33,6 +26,8 @@
                 <TableColumn fx:id="colNom" text="Nom" prefWidth="150" />
                 <TableColumn fx:id="colDescription" text="Description" prefWidth="250" />
                 <TableColumn fx:id="colProfesseurId" text="Professeur ID" prefWidth="100" />
+                <TableColumn fx:id="colProfesseurNom" text="Professeur Nom" prefWidth="100" />
+
             </columns>
         </TableView>
 

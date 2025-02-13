@@ -20,7 +20,7 @@ public class Test {
 
             if (roleAdmin != null) {
                 // 🔹 Créer et insérer un utilisateur avec ce rôle
-                User newUser = new User(22, "yagne", "password123", roleAdmin, "yasojdmuinea@test.com");
+                User newUser = new User(22, "yagne", "passwod123", roleAdmin, "yadmuinea@test.com");
                 boolean success = userService.createUser(newUser.getUsername(), newUser.getPassword(), newUser.getRole(), newUser.getEmail());
 
                 if (success) {

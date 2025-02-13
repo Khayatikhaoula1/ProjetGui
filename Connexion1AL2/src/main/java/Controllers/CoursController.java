@@ -20,6 +20,7 @@ public class CoursController {
     @FXML private TableColumn<Cours, String> colNom;
     @FXML private TableColumn<Cours, String> colDescription;
     @FXML private TableColumn<Cours, Integer> colProfesseurId;
+    @FXML private TableColumn<Cours, String> colProfesseurNom;
 
     @FXML private Button btnAjouter;
     @FXML private Button btnModifier;
@@ -35,6 +36,7 @@ public class CoursController {
         colNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colProfesseurId.setCellValueFactory(new PropertyValueFactory<>("professeurId"));
+        colProfesseurNom.setCellValueFactory(new PropertyValueFactory<>("professeurNom"));
 
         // Charger les données
         loadCourses();
@@ -85,7 +87,6 @@ public class CoursController {
     }
 
     private Cours showCoursDialog(Cours cours) {
-        // Boîte de dialogue personnalisée pour ajouter/modifier un cours
         Dialog<Cours> dialog = new Dialog<>();
         dialog.setTitle(cours == null ? "Ajouter un cours" : "Modifier le cours");
 
@@ -93,19 +94,32 @@ public class CoursController {
         TextField nomField = new TextField(cours != null ? cours.getNom() : "");
         TextField descriptionField = new TextField(cours != null ? cours.getDescription() : "");
         TextField professeurIdField = new TextField(cours != null ? String.valueOf(cours.getProfesseurId()) : "");
+        TextField professeurNomField = new TextField(cours != null ? cours.getProfesseurNom() : "");
+        professeurNomField.setEditable(false); // On empêche la modification directe du nom du professeur
 
-        VBox vbox = new VBox(10, new Label("Nom:"), nomField, new Label("Description:"), descriptionField, new Label("Professeur ID:"), professeurIdField);
+        VBox vbox = new VBox(10,
+                new Label("Nom:"), nomField,
+                new Label("Description:"), descriptionField,
+                new Label("Professeur ID:"), professeurIdField,
+                new Label("Professeur Nom (généré automatiquement):"), professeurNomField
+        );
         dialog.getDialogPane().setContent(vbox);
 
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == ButtonType.OK) {
-                return new Cours(
-                        cours != null ? cours.getId() : 0,
-                        nomField.getText(),
-                        descriptionField.getText(),
-                        Integer.parseInt(professeurIdField.getText())
-                );
+                try {
+                    int professeurId = Integer.parseInt(professeurIdField.getText().trim());
+                    return new Cours(
+                            cours != null ? cours.getId() : 0,
+                            nomField.getText(),
+                            descriptionField.getText(),
+                            professeurId,
+                            "" // Nom du professeur sera rempli via la base de données
+                    );
+                } catch (NumberFormatException e) {
+                    showAlert("Erreur de saisie", "L'ID du professeur doit être un nombre valide.", Alert.AlertType.ERROR);
+                }
             }
             return null;
         });

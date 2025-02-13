@@ -5,16 +5,26 @@ public class Cours {
     private String nom;
     private String description;
     private int professeurId;
+    private String professeurNom; // Nouveau champ
 
     // Constructeurs
-    public Cours(int id, String nom, String description, int professeurId) {
+    public Cours(int id, String nom, String description, int professeurId , String professeurNom) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.professeurId = professeurId;
+        this.professeurNom = professeurNom;
     }
 
-    // Getters et setters
+    // Getters et Setters
+    public String getProfesseurNom() {
+        return professeurNom;
+    }
+
+    public void setProfesseurNom(String professeurNom) {
+        this.professeurNom = professeurNom;
+    }
+
     public int getId() {
         return id;
     }
@@ -49,6 +59,12 @@ public class Cours {
 
     @Override
     public String toString() {
-        return "Cours{id=" + id + ", nom='" + nom + "', description='" + description + "', professeurId=" + professeurId + '}';
+        return "Cours{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                ", professeurId=" + professeurId +
+                ", professeurNom='" + professeurNom + '\'' +
+                '}';
     }
 }

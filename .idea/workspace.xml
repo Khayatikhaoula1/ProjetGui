@@ -6,17 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="39203a9e-71f5-441e-888f-d327687b1fc0" name="Changes" comment="fixed sql error (contrainte de note &lt;20)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/CoursController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/CoursController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/InscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/LoginController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/AfficherUser.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/AjouterUser.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/UserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/UserView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/inscription.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/inscription.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Cours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/CoursService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/CoursService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Utils/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Utils/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/cours.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/cours.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/inscription.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/user.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,28 +65,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Yassine-B&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ychan/OneDrive/Bureau/ProjetGui&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.42304718&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.Test.executor": "Run",
+    "Maven.Connexion1AL2 [clean].executor": "Run",
+    "Maven.Connexion1AL2 [install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Yassine-B",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/ychan/OneDrive/Bureau/ProjetGui",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.42304718",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\Desktop\ProjetGui\Connexion1AL2\src\main\java" />
@@ -154,6 +157,7 @@
       <workItem from="1739307148395" duration="8217000" />
       <workItem from="1739358332941" duration="10512000" />
       <workItem from="1739394038177" duration="1379000" />
+      <workItem from="1739395446687" duration="5447000" />
     </task>
     <task id="LOCAL-00001" summary="fixed sql error (contrainte de note &lt;20)">
       <option name="closed" value="true" />
