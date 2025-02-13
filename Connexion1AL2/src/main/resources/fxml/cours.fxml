@@ -14,15 +14,6 @@
             fx:controller="Controllers.CoursController"
             stylesheets="/css/style.css">
 
-    <!-- Barre latérale -->
-    <VBox fx:id="sidebar" prefWidth="200" prefHeight="500">
-        <ImageView fx:id="logo" fitWidth="150" fitHeight="100" />
-        <Label text="Gestion des Cours" styleClass="title-label"/>
-        <Button fx:id="btnDashboard" text="🏠 Dashboard" styleClass="sidebar-btn"/>
-        <Button fx:id="btnCours" text="📚 Cours" styleClass="sidebar-btn"/>
-        <Button fx:id="btnEtudiants" text="👨‍🎓 Étudiants" styleClass="sidebar-btn"/>
-        <Button fx:id="btnDeconnexion" text="🚪 Déconnexion" styleClass="sidebar-btn"/>
-    </VBox>
 
     <!-- Contenu principal -->
     <VBox fx:id="content" layoutX="320" layoutY="20" spacing="10" prefWidth="700">

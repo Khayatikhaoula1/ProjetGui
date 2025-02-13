@@ -3,21 +3,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.Scene?>
 <?import javafx.stage.Stage?>
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.ExamenController">
+<VBox id="content" spacing="10" alignment="CENTER"
+      xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.ExamenController"
+      stylesheets="/css/style.css">
     <children>
-        <!-- TableView for displaying exam data -->
-        <TableView fx:id="tableExamens" layoutX="50" layoutY="50" prefHeight="400" prefWidth="600" styleClass="data-table">
+        <!-- Formulaire pour l'ajout/édition d'un examen -->
+        <HBox spacing="10">
+            <Label text="Nom Examen:"/>
+            <TextField fx:id="txtNomExamen" promptText="Entrez le nom de l'examen"/>
+            <Label text="Date Examen:"/>
+            <DatePicker fx:id="dateExamen" promptText="Sélectionnez une date"/>
+        </HBox>
+
+        <!-- TableView pour afficher les examens -->
+        <TableView fx:id="tableExamen" layoutX="50" layoutY="50" prefHeight="400" prefWidth="600" styleClass="data-table">
             <columns>
-                <TableColumn fx:id="colIdExamen" text="ID Examen" prefWidth="100" styleClass="table-column"/>
-                <TableColumn fx:id="colMatiere" text="Matière" prefWidth="250" styleClass="table-column"/>
+                <TableColumn fx:id="colIdExamen" text="ID" />
+                <TableColumn fx:id="colNom" text="Nom" />
                 <TableColumn fx:id="colDateExamen" text="Date Examen" prefWidth="250" styleClass="table-column"/>
             </columns>
         </TableView>
 
-        <!-- Button to load examens with styling -->
-        <Button text="Charger Examens" layoutX="50" layoutY="460" onAction="#loadExamen" styleClass="action-button"/>
-
-        <!-- You can add other UI components here if needed -->
+        <!-- Boutons pour les actions -->
+        <HBox spacing="10">
+            <Button text="Ajouter Examen" onAction="#addExamen" styleClass="action-button"/>
+            <Button text="Modifier Examen" onAction="#updateExamen" styleClass="action-button"/>
+            <Button text="Supprimer Examen" onAction="#deleteExamen" styleClass="action-button"/>
+        </HBox>
     </children>
-</AnchorPane>
+</VBox>

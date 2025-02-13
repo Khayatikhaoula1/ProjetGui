@@ -34,7 +34,7 @@ public class Test {
 
             // Tester les notes avec NoteService
             NoteService noteService = new NoteService();
-            Note newNote = new Note(   7, 22, 3, 20, new Date(System.currentTimeMillis()));
+            Note newNote = new Note(   7, 22, 3, 20,12,new Date(System.currentTimeMillis()));
             noteService.addNote(newNote);  // Appel à la méthode addNote() de NoteService
             System.out.println("Note ajoutée avec succès !");
 

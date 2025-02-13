@@ -6,8 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="39203a9e-71f5-441e-888f-d327687b1fc0" name="Changes" comment="fixed sql error (contrainte de note &lt;20)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/ExamenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/ExamenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/InscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/InscriptionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/ExamenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/ExamenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/NoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Utils/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Utils/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/UserView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/UserView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/cours.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/cours.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/course.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/examen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/examen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/inscription.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/main.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +67,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main.executor": "Debug",
+    "Application.Main.executor": "Run",
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "Khaoula__B",
