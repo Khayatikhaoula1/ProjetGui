@@ -21,24 +21,19 @@ public class AbsenceController {
     @FXML private TableColumn<Absence, Integer> colEtudiantId;
     @FXML private TableColumn<Absence, Date> colDate;
     @FXML private TableColumn<Absence, String> colMotif;
-
     @FXML private Button btnAjouter;
     @FXML private Button btnModifier;
     @FXML private Button btnSupprimer;
-
     private final AbsenceService absenceService = new AbsenceService();
     private ObservableList<Absence> absenceList;
-
     @FXML
     public void initialize() {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colEtudiantId.setCellValueFactory(new PropertyValueFactory<>("etudiantId"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         colMotif.setCellValueFactory(new PropertyValueFactory<>("motif"));
-
         loadAbsences();
     }
-
     private void loadAbsences() {
         List<Absence> absences = absenceService.getAllAbsences();
         absenceList = FXCollections.observableArrayList(absences);
@@ -87,21 +82,18 @@ public class AbsenceController {
     private Absence showAbsenceDialog(Absence absence) {
         Dialog<Absence> dialog = new Dialog<>();
         dialog.setTitle(absence == null ? "Ajouter une absence" : "Modifier l'absence");
-
         TextField etudiantIdField = new TextField(absence != null ? String.valueOf(absence.getEtudiantId()) : "");
         DatePicker datePicker = new DatePicker();
         if (absence != null) {
             datePicker.setValue(absence.getDate().toLocalDate());
         }
         TextField motifField = new TextField(absence != null ? absence.getMotif() : "");
-
         VBox vbox = new VBox(10,
                 new Label("ID Étudiant:"), etudiantIdField,
                 new Label("Date:"), datePicker,
                 new Label("Motif:"), motifField
         );
         dialog.getDialogPane().setContent(vbox);
-
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == ButtonType.OK) {
@@ -119,7 +111,6 @@ public class AbsenceController {
             }
             return null;
         });
-
         Optional<Absence> result = dialog.showAndWait();
         return result.orElse(null);
     }

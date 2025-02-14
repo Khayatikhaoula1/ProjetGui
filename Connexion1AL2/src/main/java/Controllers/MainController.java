@@ -15,7 +15,17 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainController {
+        private static MainController instance; // ✅ Ajout de l'instance Singleton
 
+        public static MainController getInstance() {
+            return instance;
+        }
+
+        @FXML
+        public void initialize() {
+            instance = this; // Sauvegarde l'instance actuelle
+
+    }
     @FXML
     private Button loginLogoutButton; // Bouton Login/Logout
 
@@ -69,7 +79,7 @@ public class MainController {
      * Gestion des boutons de la barre latérale
      */
     @FXML
-    private void loadDashboardView(ActionEvent event) {
+    void loadDashboardView(ActionEvent event) {
         loadView("Dashboard.fxml");
     }
 
@@ -77,16 +87,15 @@ public class MainController {
     private void loadUserView(ActionEvent event) {
         loadView("UserView.fxml");
     }
+    @FXML
+    public void loadAbsencesView(ActionEvent event) {
+        loadView("Absence.fxml");
+    }
+
 
     @FXML
     private void loadCoursView(ActionEvent event) {
         loadView("Cours.fxml");
-    }
-    @FXML
-    private void handleLogout(ActionEvent event) throws IOException {
-        // Déconnecter l'utilisateur
-        setUser(null);
-        loadLoginPage(); // Retour à la page de connexion
     }
 
 
@@ -94,16 +103,11 @@ public class MainController {
     private void loadExamensView(ActionEvent event) {
         loadView("examen.fxml");
     }
-    @FXML
-    private void loadAbsencesView() {
-        loadView("Absence.fxml");
-    }
 
     @FXML
     private void loadNotesView(ActionEvent event) {
-        loadView("note.fxml");
+        loadView("note .fxml");
     }
-
 
     @FXML
     private void loadInscriptionsView(ActionEvent event) {
@@ -112,41 +116,22 @@ public class MainController {
 
     @FXML
     private void loadAuthView(ActionEvent event) {
-        loadView("auth.fxml");
+        loadView("Login.fxml");
+    }
+    @FXML
+    private void loadAbsencesView() {
+        loadView("Absence.fxml");
     }
 
     /**
      * Gère l'action du bouton "Login / Logout".
      */
-    @FXML
-    private void handleLoginLogout(ActionEvent event) throws IOException {
-        if (currentUser != null) {
-            // Déconnexion
-            currentUser = null;
-            loggedInUserLabel.setText("Non connecté");
-            loginLogoutButton.setText("Login");
-            loadLoginPage(); // Redirige vers la page de connexion
-        } else {
-            loadLoginPage();
-        }
-    }
+
 
     /**
      * Charge et affiche la page de connexion.
      */
-    private void loadLoginPage() throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
-            Parent root = loader.load();
 
-            Stage stage = (Stage) mainContent.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Connexion");
-            stage.show();
-        } catch (IOException e) {
-            showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible de charger la page de connexion.");
-        }
-    }
 
     /**
      * Affiche une boîte de dialogue d'alerte.
@@ -158,4 +143,32 @@ public class MainController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    private void handleLoginLogout(ActionEvent event) throws IOException {
+        if (currentUser != null) {
+            handleLogout(event);  // Déconnexion
+        } else {
+            loadLoginPage();  // Chargement de la page de connexion
+        }
+    }
+
+    private void loadLoginPage() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) mainContent.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Connexion");
+            stage.show();
+        } catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "Erreur", "Impossible de charger la page de connexion.");
+        }
+    }
+    @FXML
+    private void handleLogout(ActionEvent event) {
+        setUser(null);  // Effacer l'utilisateur connecté
+        loadLoginPage();  // Retourner à la page de connexion
+    }
+
 }

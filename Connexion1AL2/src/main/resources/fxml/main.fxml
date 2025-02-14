@@ -13,7 +13,8 @@
 
     <!-- En-tête -->
     <top>
-        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
+        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;"
+              HBox.hgrow="ALWAYS">
             <ImageView fitHeight="50.0" fitWidth="50.0">
                 <Image url="@../icons/logo.png" />
             </ImageView>
@@ -47,7 +48,6 @@
             <Button text="📝 Inscriptions" styleClass="sidebar-btn" onAction="#loadInscriptionsView" />
             <Button text="🔑 Authentification" styleClass="sidebar-btn" onAction="#loadAuthView" />
             <Button text="📅 Absences" styleClass="sidebar-btn" onAction="#loadAbsencesView" />
-
             <Button text="🚪 Déconnexion" styleClass="logout-btn" onAction="#handleLogout"/>
         </VBox>
     </left>

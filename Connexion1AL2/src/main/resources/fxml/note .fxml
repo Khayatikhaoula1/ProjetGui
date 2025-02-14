@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.NoteController">
+    <!-- Zone centrale : TableView des notes -->
+    <center>
+        <TableView fx:id="tableNotes" prefHeight="400.0" prefWidth="800.0">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="colEtudiantId" text="Etudiant ID" prefWidth="100"/>
+                <TableColumn fx:id="colCoursId" text="Cours ID" prefWidth="100"/>
+                <TableColumn fx:id="colNomEtudiant" text="Nom Etudiant" prefWidth="150"/>
+                <TableColumn fx:id="colNote" text="Note" prefWidth="75"/>
+                <TableColumn fx:id="colNoteControle" text="Note Controle" prefWidth="100"/>
+                <TableColumn fx:id="colResultat" text="Resultat" prefWidth="100"/>
+                <TableColumn fx:id="colDateEvaluation" text="Date Evaluation" prefWidth="125"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- Zone inférieure : Boutons d'actions -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="10" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button fx:id="btnAjouter" text="Ajouter" onAction="#ajouterNote"/>
+            <Button fx:id="btnModifier" text="Modifier" onAction="#modifierNote"/>
+            <Button fx:id="btnSupprimer" text="Supprimer" onAction="#supprimerNote"/>
+        </HBox>
+    </bottom>
+</BorderPane>
