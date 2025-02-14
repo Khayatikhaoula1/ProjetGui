@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39203a9e-71f5-441e-888f-d327687b1fc0" name="Changes" comment="fixed sql error (contrainte de note &lt;20)" />
+    <list default="true" id="39203a9e-71f5-441e-888f-d327687b1fc0" name="Changes" comment="fixed sql error (contrainte de note &lt;20)">
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Controllers/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Entites/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/NoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connexion1AL2/src/main/java/Services/NoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/course.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/grade.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connexion1AL2/src/main/resources/fxml/student.fxml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +60,7 @@
   "keyToString": {
     "Application.Test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Ons-B",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/user/Desktop/ProjetGui/Connexion1AL2/src/main/java",
