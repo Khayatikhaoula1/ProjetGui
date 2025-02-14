@@ -94,11 +94,16 @@ public class MainController {
     private void loadExamensView(ActionEvent event) {
         loadView("examen.fxml");
     }
+    @FXML
+    private void loadAbsencesView() {
+        loadView("Absence.fxml");
+    }
 
     @FXML
     private void loadNotesView(ActionEvent event) {
         loadView("note.fxml");
     }
+
 
     @FXML
     private void loadInscriptionsView(ActionEvent event) {

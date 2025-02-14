@@ -1,155 +1,99 @@
-/* Style global */
+/* Style général de la fenêtre */
 .root {
-    -fx-background-color: #ecf0f1;
-    -fx-font-family: "Arial";
-    -fx-padding: 10;
+    -fx-background-color: #f4f4f4; /* Couleur de fond gris clair */
 }
 
-/* Barre latérale */
-#sidebar {
-    -fx-background-color: #2c3e50;
-    -fx-padding: 20;
-    -fx-alignment: center;
-    -fx-min-width: 200px; /* Définit la largeur minimale de la barre latérale */
-    -fx-pref-width: 250px; /* Largeur préférée pour la barre latérale */
-    -fx-max-width: 300px; /* Largeur maximale pour la barre latérale */
+/* Style du TableView */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #3498db;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
 }
 
-/* Logo */
-#logo {
-    -fx-opacity: 0.8;
-    -fx-alignment: center;
-    -fx-margin: 10;
+.table-view .column-header-background {
+    -fx-background-color: #3498db;
 }
 
-/* Titre de la barre latérale */
-.title-label {
-    -fx-text-fill: white;
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-padding: 20;
-    -fx-alignment: center;
-    -fx-margin: 10;
-}
-
-/* Boutons de la barre latérale (centrés et espacés) */
-#sidebar .sidebar-btn {
+.table-view .column-header {
     -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-font-size: 14px;
-    -fx-padding: 15 25;
-    -fx-border-radius: 5;
-    -fx-border-color: white;
-    -fx-margin: 10;
-    -fx-alignment: center;
-    -fx-min-width: 150px;
-    -fx-max-width: 200px;
-}
-
-.sidebar-btn:hover {
-    -fx-background-color: #34495e;
-    -fx-scale-x: 1.05;
-    -fx-scale-y: 1.05;
-    -fx-transition: all 0.3s ease-in-out;
-}
-
-/* Contenu principal */
-#content {
-    -fx-padding: 20;
-    -fx-background-color: #ffffff;
-    -fx-alignment: center;
-    -fx-spacing: 20;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 2);
-}
-
-/* En-tête */
-.header-label {
-    -fx-font-size: 20px;
     -fx-font-weight: bold;
-    -fx-text-fill: #2c3e50;
-    -fx-padding: 10;
-    -fx-alignment: center;
 }
 
-/* TableView stylé */
-.custom-table {
+/* Style des lignes du tableau */
+.table-row-cell {
     -fx-background-color: white;
-    -fx-border-radius: 10;
-    -fx-padding: 5;
-    -fx-border-color: #bdc3c7;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
-    -fx-max-width: 800px;
-    -fx-alignment: center;
+    -fx-border-color: #ddd;
+    -fx-border-width: 0 0 1 0;
 }
 
-/* Suppression de l'animation sur la table */
-.custom-table:hover {
-    -fx-scale-x: 1.02;
-    -fx-scale-y: 1.02;
-    -fx-transition: all 0.3s ease-in-out;
+.table-row-cell:odd {
+    -fx-background-color: #ecf0f1; /* Gris clair */
 }
 
-/* Colonnes de la table */
-.custom-table .column-header {
-    -fx-background-color: #ecf0f1;
-    -fx-text-fill: #2c3e50;
-    -fx-font-weight: bold;
-    -fx-padding: 10;
+.table-row-cell:selected {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
 }
 
-.custom-table .column-header .table-column {
-    -fx-padding: 5;
-    -fx-background-color: #ecf0f1;
-    -fx-border-color: #bdc3c7;
-}
-
-/* Boutons d'action centrés et stylisés */
-.action-btn {
-    -fx-background-color: #3498db;
+/* Style des boutons */
+.button {
+    -fx-background-color: #2ecc71; /* Vert */
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10 20;
-    -fx-background-radius: 5;
-    -fx-cursor: hand;
-    -fx-transition: all 0.3s ease-in-out;
-    -fx-min-width: 150px;
-    -fx-alignment: center;
-    -fx-margin: 10;
+    -fx-padding: 8px 15px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #27ae60;
 }
 
-.action-btn:hover {
-    -fx-background-color: #2980b9;
-    -fx-scale-x: 1.1;
-    -fx-scale-y: 1.1;
+.button:hover {
+    -fx-background-color: #27ae60; /* Vert foncé */
 }
 
-/* Dialogs */
-.dialog-content {
-    -fx-padding: 20;
-    -fx-background-color: #ecf0f1;
+.button:pressed {
+    -fx-background-color: #1e8449;
 }
 
-.dialog-buttons {
-    -fx-spacing: 10;
+/* Style spécifique pour le bouton "Supprimer" */
+#btnSupprimer {
+    -fx-background-color: #e74c3c; /* Rouge */
+    -fx-border-color: #c0392b;
 }
 
-.dialog-buttons .button {
-    -fx-background-color: #3498db;
+#btnSupprimer:hover {
+    -fx-background-color: #c0392b;
+}
+
+#btnSupprimer:pressed {
+    -fx-background-color: #a93226;
+}
+/* Style des champs de texte et des mots de passe */
+.auth-field {
+    -fx-background-color: #ecf0f1; /* Gris clair */
+    -fx-border-color: #3498db;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+}
+
+/* Style du bouton */
+.auth-button {
+    -fx-background-color: #2ecc71; /* Vert */
     -fx-text-fill: white;
-    -fx-padding: 10 20;
-    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 15px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #27ae60;
 }
 
-.dialog-buttons .button:hover {
-    -fx-background-color: #2980b9;
+.auth-button:hover {
+    -fx-background-color: #27ae60; /* Vert foncé */
 }
 
-/* Tooltip */
-.tooltip {
-    -fx-background-color: #34495e;
-    -fx-text-fill: white;
-    -fx-font-size: 12px;
-    -fx-padding: 5;
-    -fx-background-radius: 3;
+.auth-button:pressed {
+    -fx-background-color: #1e8449;
 }

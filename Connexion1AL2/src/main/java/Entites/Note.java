@@ -1,26 +1,30 @@
 package Entites;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Note {
     private int id;
     private int etudiantId;
     private int coursId;
     private double note;
-    private double noteControle;
     private Date dateEvaluation;
+    private Double noteControle;
     private String resultat;
+    private String nomEtudiant;
 
-    public Note(int id, int etudiantId, int coursId, double note, double noteControle, Date dateEvaluation) {
+    // Constructeur
+    public Note(int id, int etudiantId, int coursId, double note, Date dateEvaluation, Double noteControle, String resultat, String nomEtudiant) {
         this.id = id;
         this.etudiantId = etudiantId;
         this.coursId = coursId;
         this.note = note;
-        this.noteControle = noteControle;
         this.dateEvaluation = dateEvaluation;
-        setResultat();
+        this.noteControle = noteControle;
+        this.resultat = resultat;
+        this.nomEtudiant = nomEtudiant;
     }
 
+    // Getters et setters
     public int getId() {
         return id;
     }
@@ -51,16 +55,6 @@ public class Note {
 
     public void setNote(double note) {
         this.note = note;
-        setResultat();
-    }
-
-    public double getNoteControle() {
-        return noteControle;
-    }
-
-    public void setNoteControle(double noteControle) {
-        this.noteControle = noteControle;
-        setResultat();
     }
 
     public Date getDateEvaluation() {
@@ -71,15 +65,41 @@ public class Note {
         this.dateEvaluation = dateEvaluation;
     }
 
-    public boolean isReussite() {
-        return note >= 10 || noteControle >= 10;
+    public Double getNoteControle() {
+        return noteControle;
+    }
+
+    public void setNoteControle(Double noteControle) {
+        this.noteControle = noteControle;
     }
 
     public String getResultat() {
         return resultat;
     }
 
-    private void setResultat() {
-        this.resultat = isReussite() ? "Admis" : "Refus";
+    public void setResultat(String resultat) {
+        this.resultat = resultat;
+    }
+
+    public String getNomEtudiant() {
+        return nomEtudiant;
+    }
+
+    public void setNomEtudiant(String nomEtudiant) {
+        this.nomEtudiant = nomEtudiant;
+    }
+
+    @Override
+    public String toString() {
+        return "Note{" +
+                "id=" + id +
+                ", etudiantId=" + etudiantId +
+                ", coursId=" + coursId +
+                ", note=" + note +
+                ", dateEvaluation=" + dateEvaluation +
+                ", noteControle=" + noteControle +
+                ", resultat='" + resultat + '\'' +
+                ", nomEtudiant='" + nomEtudiant + '\'' +
+                '}';
     }
 }

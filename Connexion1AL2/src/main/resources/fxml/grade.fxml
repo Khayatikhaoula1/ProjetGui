@@ -12,7 +12,7 @@
 
     <top>
         <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
-            <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Gestion des Notes">
+            <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Gestion des Notes"  stylesheets="/css/style.css">
                 <font>
                     <Font name="Segoe UI" size="24.0" />
                 </font>

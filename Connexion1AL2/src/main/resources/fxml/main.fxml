@@ -46,6 +46,7 @@
             <Button text="📊 Notes" styleClass="sidebar-btn" onAction="#loadNotesView" />
             <Button text="📝 Inscriptions" styleClass="sidebar-btn" onAction="#loadInscriptionsView" />
             <Button text="🔑 Authentification" styleClass="sidebar-btn" onAction="#loadAuthView" />
+            <Button text="📅 Absences" styleClass="sidebar-btn" onAction="#loadAbsencesView" />
 
             <Button text="🚪 Déconnexion" styleClass="logout-btn" onAction="#handleLogout"/>
         </VBox>
