@@ -1,0 +1,667 @@
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_.xml	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
++++ /dev/null	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]" date="1738847772804" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 06/02/2025 14:16 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_1.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16__Changes_1.xml	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
++++ /dev/null	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]1" date="1738847786940" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 06/02/2025 14:16 [Changes]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]1/shelved.patch	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
++++ /dev/null	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
+@@ -1,303 +0,0 @@
+-Index: Connexion1AL2/src/main/java/Controllers/NoteController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/NoteController.java b/Connexion1AL2/src/main/java/Controllers/NoteController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/NoteController.java	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-+++ /dev/null	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-@@ -1,19 +0,0 @@
+--package Controllers;
+--
+--import Services.NoteService;
+--import Entites.Note;
+--import java.util.List;
+--
+--public class NoteController {
+--
+--    private NoteService noteService;
+--
+--    public NoteController() {
+--        this.noteService = new NoteService();
+--    }
+--
+--    // Récupérer toutes les notes d'un étudiant
+--    public List<Note> getNotesByStudent(int etudiantId) {
+--        return noteService.getNotesByStudent(etudiantId);
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/CoursController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/CoursController.java b/Connexion1AL2/src/main/java/Controllers/CoursController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/CoursController.java	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-+++ /dev/null	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-@@ -1,19 +0,0 @@
+--package Controllers;
+--
+--import Services.CoursService;
+--import Entites.Cours;
+--import java.util.List;
+--
+--public class CoursController {
+--
+--    private CoursService coursService;
+--
+--    public CoursController() {
+--        this.coursService = new CoursService();
+--    }
+--
+--    // Récupérer les cours auxquels un étudiant est inscrit
+--    public List<Cours> getCoursesByStudent(int etudiantId) {
+--        return coursService.getCoursesByStudent(etudiantId);
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/InscriptionController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/InscriptionController.java b/Connexion1AL2/src/main/java/Controllers/InscriptionController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/InscriptionController.java	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-+++ /dev/null	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-@@ -1,19 +0,0 @@
+--package Controllers;
+--
+--import Services.InscriptionService;
+--import Entites.Inscription;
+--import java.util.List;
+--
+--public class InscriptionController {
+--
+--    private InscriptionService inscriptionService;
+--
+--    public InscriptionController() {
+--        this.inscriptionService = new InscriptionService();
+--    }
+--
+--    // Récupérer toutes les inscriptions d'un étudiant
+--    public List<Inscription> getInscriptionsByStudent(int etudiantId) {
+--        return inscriptionService.getInscriptionsByStudent(etudiantId);
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/AbsenceController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/AbsenceController.java b/Connexion1AL2/src/main/java/Controllers/AbsenceController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/AbsenceController.java	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-+++ /dev/null	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-@@ -1,61 +0,0 @@
+--package Controllers;
+--
+--import Services.AbsenceService;
+--import Entites.Absence;
+--import java.util.List;
+--import javafx.fxml.FXML;
+--import javafx.scene.control.Alert;
+--import javafx.scene.control.Alert.AlertType;
+--import javafx.scene.control.TableColumn;
+--import javafx.scene.control.TableView;
+--import javafx.scene.control.cell.PropertyValueFactory;
+--
+--public class AbsenceController {
+--
+--    @FXML
+--    private TableView<Absence> tableAbsences;
+--    @FXML
+--    private TableColumn<Absence, Integer> colId;
+--    @FXML
+--    private TableColumn<Absence, Integer> colEtudiantId;
+--    @FXML
+--    private TableColumn<Absence, Integer> colCoursId;
+--    @FXML
+--    private TableColumn<Absence, String> colMotif;
+--    @FXML
+--    private TableColumn<Absence, java.sql.Date> colDateAbsence;
+--
+--    private AbsenceService absenceService;
+--
+--    public AbsenceController() {
+--        absenceService = new AbsenceService();  // Initialisation du service
+--    }
+--
+--    // Méthode pour charger les absences d'un étudiant
+--    public void loadAbsences(int etudiantId) {
+--        List<Absence> absences = absenceService.getAbsencesByStudent(etudiantId);
+--        if (absences.isEmpty()) {
+--            showAlert(AlertType.INFORMATION, "Aucune absence", "Aucune absence trouvée pour cet étudiant.");
+--        } else {
+--            tableAbsences.getItems().setAll(absences);
+--        }
+--    }
+--
+--    // Initialiser la TableView avec les colonnes appropriées
+--    public void initialize() {
+--        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+--        colEtudiantId.setCellValueFactory(new PropertyValueFactory<>("etudiantId"));
+--        colCoursId.setCellValueFactory(new PropertyValueFactory<>("coursId"));
+--        colMotif.setCellValueFactory(new PropertyValueFactory<>("motif"));
+--        colDateAbsence.setCellValueFactory(new PropertyValueFactory<>("dateAbsence"));
+--    }
+--
+--    // Afficher un message d'alerte
+--    private void showAlert(AlertType type, String title, String message) {
+--        Alert alert = new Alert(type);
+--        alert.setTitle(title);
+--        alert.setHeaderText(null);
+--        alert.setContentText(message);
+--        alert.showAndWait();
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/MainController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/MainController.java b/Connexion1AL2/src/main/java/Controllers/MainController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/MainController.java	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-+++ /dev/null	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-@@ -1,87 +0,0 @@
+--package Controllers;
+--
+--import javafx.event.ActionEvent;
+--import javafx.fxml.FXML;
+--import javafx.fxml.FXMLLoader;
+--import javafx.scene.Parent;
+--import javafx.scene.Scene;
+--import javafx.stage.Stage;
+--
+--import java.io.IOException;
+--
+--public class MainController {
+--
+--    @FXML
+--    private void handleStudentManagement(ActionEvent event) throws IOException {
+--        loadScene("student.fxml");
+--    }
+--
+--    @FXML
+--    private void handleCourseManagement(ActionEvent event) throws IOException {
+--        loadScene("course.fxml");
+--    }
+--
+--    @FXML
+--    private void handleUserManagement(ActionEvent event) throws IOException {
+--        loadScene("user.fxml");
+--    }
+--
+--    @FXML
+--    private void handleGradeManagement(ActionEvent event) throws IOException {
+--        loadScene("grade.fxml");
+--    }
+--
+--    @FXML
+--    private void handleAuth(ActionEvent event) throws IOException {
+--        loadScene("auth.fxml");
+--    }
+--
+--    @FXML
+--    private void handleInscription(ActionEvent event) throws IOException {
+--        loadScene("inscription.fxml");
+--    }
+--
+--    /**
+--     * Loads a new scene from the specified FXML file and displays it in a new stage.
+--     *
+--     * @param fxmlFile The name of the FXML file to load (e.g., "student.fxml").
+--     * @throws IOException If the FXML file cannot be loaded.
+--     */
+--    private void loadScene(String fxmlFile) throws IOException {
+--        // Load the FXML file
+--        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + fxmlFile));
+--        Parent root = loader.load();
+--
+--        // Create a new stage and set the scene
+--        Stage stage = new Stage();
+--        stage.setScene(new Scene(root));
+--
+--        // Set the title of the stage based on the FXML file
+--        switch (fxmlFile) {
+--            case "student.fxml":
+--                stage.setTitle("Gestion des Étudiants");
+--                break;
+--            case "course.fxml":
+--                stage.setTitle("Gestion des Cours");
+--                break;
+--            case "user.fxml":
+--                stage.setTitle("Gestion des Utilisateurs");
+--                break;
+--            case "grade.fxml":
+--                stage.setTitle("Gestion des Notes");
+--                break;
+--            case "auth.fxml":
+--                stage.setTitle("Authentification");
+--                break;
+--            case "inscription.fxml":
+--                stage.setTitle("Inscription au Système");
+--                break;
+--            default:
+--                stage.setTitle("NextGenEdu");
+--                break;
+--        }
+--
+--        // Show the stage
+--        stage.show();
+--    }
+--}
+-\ No newline at end of file
+-Index: Connexion1AL2/src/main/java/Controllers/UserController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/UserController.java b/Connexion1AL2/src/main/java/Controllers/UserController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/UserController.java	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-+++ /dev/null	(revision 0d76b25af41ac18aa83a4b6c886f7cf697d8b876)
+-@@ -1,55 +0,0 @@
+--package Controllers;
+--
+--import Entites.Role;
+--import Services.UserService;
+--import Entites.User;
+--import java.sql.SQLException;
+--import java.util.List;
+--
+--public class UserController {
+--    private UserService userService;
+--
+--    public UserController() {
+--        this.userService = new UserService();  // Assure-toi d'utiliser le bon constructeur ici
+--    }
+--
+--    // Méthode pour créer un utilisateur
+--    public boolean createUser(String username, String password, int role, String email) {
+--        try {
+--            return userService.createUser(username, password, role,email);
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la création de l'utilisateur: " + e.getMessage());
+--            return false;
+--        }
+--    }
+--
+--    // Méthode pour obtenir tous les utilisateurs
+--    public List<User> getAllUsers() {
+--        try {
+--            return userService.getAllUsers();
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la récupération des utilisateurs: " + e.getMessage());
+--            return null;
+--        }
+--    }
+--
+--    // Méthode pour obtenir un utilisateur par son ID
+--    public User getUserById(int userId) {
+--        try {
+--            return userService.getUserById(userId);
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la récupération de l'utilisateur: " + e.getMessage());
+--            return null;
+--        }
+--    }
+--
+--    // Méthode pour supprimer un utilisateur
+--    public boolean deleteUser(int userId) {
+--        try {
+--            return userService.deleteUser(userId);
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la suppression de l'utilisateur: " + e.getMessage());
+--            return false;
+--        }
+--    }
+--}
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_02_2025_14_16_[Changes]/shelved.patch	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
++++ /dev/null	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
+@@ -1,306 +0,0 @@
+-Index: Connexion1AL2/src/main/java/Controllers/NoteController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/NoteController.java b/Connexion1AL2/src/main/java/Controllers/NoteController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/NoteController.java	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-+++ /dev/null	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-@@ -1,19 +0,0 @@
+--package Controllers;
+--
+--import Services.NoteService;
+--import Entites.Note;
+--import java.util.List;
+--
+--public class NoteController {
+--
+--    private NoteService noteService;
+--
+--    public NoteController() {
+--        this.noteService = new NoteService();
+--    }
+--
+--    // Récupérer toutes les notes d'un étudiant
+--    public List<Note> getNotesByStudent(int etudiantId) {
+--        return noteService.getNotesByStudent(etudiantId);
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/CoursController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/CoursController.java b/Connexion1AL2/src/main/java/Controllers/CoursController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/CoursController.java	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-+++ /dev/null	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-@@ -1,19 +0,0 @@
+--package Controllers;
+--
+--import Services.CoursService;
+--import Entites.Cours;
+--import java.util.List;
+--
+--public class CoursController {
+--
+--    private CoursService coursService;
+--
+--    public CoursController() {
+--        this.coursService = new CoursService();
+--    }
+--
+--    // Récupérer les cours auxquels un étudiant est inscrit
+--    public List<Cours> getCoursesByStudent(int etudiantId) {
+--        return coursService.getCoursesByStudent(etudiantId);
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/InscriptionController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/InscriptionController.java b/Connexion1AL2/src/main/java/Controllers/InscriptionController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/InscriptionController.java	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-+++ /dev/null	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-@@ -1,19 +0,0 @@
+--package Controllers;
+--
+--import Services.InscriptionService;
+--import Entites.Inscription;
+--import java.util.List;
+--
+--public class InscriptionController {
+--
+--    private InscriptionService inscriptionService;
+--
+--    public InscriptionController() {
+--        this.inscriptionService = new InscriptionService();
+--    }
+--
+--    // Récupérer toutes les inscriptions d'un étudiant
+--    public List<Inscription> getInscriptionsByStudent(int etudiantId) {
+--        return inscriptionService.getInscriptionsByStudent(etudiantId);
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/AbsenceController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/AbsenceController.java b/Connexion1AL2/src/main/java/Controllers/AbsenceController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/AbsenceController.java	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-+++ /dev/null	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-@@ -1,61 +0,0 @@
+--package Controllers;
+--
+--import Services.AbsenceService;
+--import Entites.Absence;
+--import java.util.List;
+--import javafx.fxml.FXML;
+--import javafx.scene.control.Alert;
+--import javafx.scene.control.Alert.AlertType;
+--import javafx.scene.control.TableColumn;
+--import javafx.scene.control.TableView;
+--import javafx.scene.control.cell.PropertyValueFactory;
+--
+--public class AbsenceController {
+--
+--    @FXML
+--    private TableView<Absence> tableAbsences;
+--    @FXML
+--    private TableColumn<Absence, Integer> colId;
+--    @FXML
+--    private TableColumn<Absence, Integer> colEtudiantId;
+--    @FXML
+--    private TableColumn<Absence, Integer> colCoursId;
+--    @FXML
+--    private TableColumn<Absence, String> colMotif;
+--    @FXML
+--    private TableColumn<Absence, java.sql.Date> colDateAbsence;
+--
+--    private AbsenceService absenceService;
+--
+--    public AbsenceController() {
+--        absenceService = new AbsenceService();  // Initialisation du service
+--    }
+--
+--    // Méthode pour charger les absences d'un étudiant
+--    public void loadAbsences(int etudiantId) {
+--        List<Absence> absences = absenceService.getAbsencesByStudent(etudiantId);
+--        if (absences.isEmpty()) {
+--            showAlert(AlertType.INFORMATION, "Aucune absence", "Aucune absence trouvée pour cet étudiant.");
+--        } else {
+--            tableAbsences.getItems().setAll(absences);
+--        }
+--    }
+--
+--    // Initialiser la TableView avec les colonnes appropriées
+--    public void initialize() {
+--        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+--        colEtudiantId.setCellValueFactory(new PropertyValueFactory<>("etudiantId"));
+--        colCoursId.setCellValueFactory(new PropertyValueFactory<>("coursId"));
+--        colMotif.setCellValueFactory(new PropertyValueFactory<>("motif"));
+--        colDateAbsence.setCellValueFactory(new PropertyValueFactory<>("dateAbsence"));
+--    }
+--
+--    // Afficher un message d'alerte
+--    private void showAlert(AlertType type, String title, String message) {
+--        Alert alert = new Alert(type);
+--        alert.setTitle(title);
+--        alert.setHeaderText(null);
+--        alert.setContentText(message);
+--        alert.showAndWait();
+--    }
+--}
+-Index: Connexion1AL2/src/main/java/Controllers/MainController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/MainController.java b/Connexion1AL2/src/main/java/Controllers/MainController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/MainController.java	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-+++ /dev/null	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-@@ -1,87 +0,0 @@
+--package Controllers;
+--
+--import javafx.event.ActionEvent;
+--import javafx.fxml.FXML;
+--import javafx.fxml.FXMLLoader;
+--import javafx.scene.Parent;
+--import javafx.scene.Scene;
+--import javafx.stage.Stage;
+--
+--import java.io.IOException;
+--
+--public class MainController {
+--
+--    @FXML
+--    private void handleStudentManagement(ActionEvent event) throws IOException {
+--        loadScene("student.fxml");
+--    }
+--
+--    @FXML
+--    private void handleCourseManagement(ActionEvent event) throws IOException {
+--        loadScene("course.fxml");
+--    }
+--
+--    @FXML
+--    private void handleUserManagement(ActionEvent event) throws IOException {
+--        loadScene("user.fxml");
+--    }
+--
+--    @FXML
+--    private void handleGradeManagement(ActionEvent event) throws IOException {
+--        loadScene("grade.fxml");
+--    }
+--
+--    @FXML
+--    private void handleAuth(ActionEvent event) throws IOException {
+--        loadScene("auth.fxml");
+--    }
+--
+--    @FXML
+--    private void handleInscription(ActionEvent event) throws IOException {
+--        loadScene("inscription.fxml");
+--    }
+--
+--    /**
+--     * Loads a new scene from the specified FXML file and displays it in a new stage.
+--     *
+--     * @param fxmlFile The name of the FXML file to load (e.g., "student.fxml").
+--     * @throws IOException If the FXML file cannot be loaded.
+--     */
+--    private void loadScene(String fxmlFile) throws IOException {
+--        // Load the FXML file
+--        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + fxmlFile));
+--        Parent root = loader.load();
+--
+--        // Create a new stage and set the scene
+--        Stage stage = new Stage();
+--        stage.setScene(new Scene(root));
+--
+--        // Set the title of the stage based on the FXML file
+--        switch (fxmlFile) {
+--            case "student.fxml":
+--                stage.setTitle("Gestion des Étudiants");
+--                break;
+--            case "course.fxml":
+--                stage.setTitle("Gestion des Cours");
+--                break;
+--            case "user.fxml":
+--                stage.setTitle("Gestion des Utilisateurs");
+--                break;
+--            case "grade.fxml":
+--                stage.setTitle("Gestion des Notes");
+--                break;
+--            case "auth.fxml":
+--                stage.setTitle("Authentification");
+--                break;
+--            case "inscription.fxml":
+--                stage.setTitle("Inscription au Système");
+--                break;
+--            default:
+--                stage.setTitle("NextGenEdu");
+--                break;
+--        }
+--
+--        // Show the stage
+--        stage.show();
+--    }
+--}
+-\ No newline at end of file
+-Index: Connexion1AL2/src/main/java/Controllers/UserController.java
+-===================================================================
+-diff --git a/Connexion1AL2/src/main/java/Controllers/UserController.java b/Connexion1AL2/src/main/java/Controllers/UserController.java
+-deleted file mode 100644
+---- a/Connexion1AL2/src/main/java/Controllers/UserController.java	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-+++ /dev/null	(revision 97b889769816ca75e2a56d8919480a1e9122b7e8)
+-@@ -1,58 +0,0 @@
+--package Controllers;
+--
+--import Entites.Role;
+--import Entites.User;
+--import Services.UserService;
+--
+--import java.sql.SQLException;
+--import java.util.List;
+--
+--public class UserController {
+--    private UserService userService;
+--
+--    public UserController() {
+--        this.userService = new UserService();
+--    }
+--
+--    // Méthode pour créer un utilisateur
+--    public boolean createUser(String username, String password, int roleId, String email) {
+--        try {
+--            // Récupérer l'objet Role avec l'ID
+--            Role role = userService.getRoleById(roleId);
+--            if (role != null) {
+--                return userService.createUser(username, password, role, email);
+--            } else {
+--                System.err.println("Le rôle spécifié est invalide.");
+--                return false;
+--            }
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la création de l'utilisateur: " + e.getMessage());
+--            return false;
+--        }
+--    }
+--
+--    // Méthode pour obtenir tous les utilisateurs
+--    public List<User> getAllUsers() {
+--        try {
+--            return userService.getAllUsers();
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la récupération des utilisateurs: " + e.getMessage());
+--            return null;
+--        }
+--    }
+--
+--    // Méthode pour obtenir un utilisateur par son ID
+--    public User getUserById(int userId) {
+--        return userService.getUserById(userId);
+--    }
+--
+--    // Méthode pour supprimer un utilisateur
+--    public boolean deleteUser(int userId) {
+--        try {
+--            return userService.deleteUser(userId);
+--        } catch (SQLException e) {
+--            System.err.println("Erreur lors de la suppression de l'utilisateur: " + e.getMessage());
+--            return false;
+--        }
+--    }
+--}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/Connexion1AL2/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_23\" default=\"true\" project-jdk-name=\"jbrsdk-17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 1d2010c1ca0d742771a9e72510bc95f12ebefd7c)
++++ b/.idea/misc.xml	(date 1739479988990)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="jbrsdk-17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="jbrsdk-17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
