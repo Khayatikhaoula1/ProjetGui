@@ -87,6 +87,11 @@ public class MainController {
     private void loadUserView(ActionEvent event) {
         loadView("UserView.fxml");
     }
+    @FXML
+    public void loadAbsencesView(ActionEvent event) {
+        loadView("Absence.fxml");
+    }
+
 
     @FXML
     private void loadCoursView(ActionEvent event) {
@@ -112,6 +117,10 @@ public class MainController {
     @FXML
     private void loadAuthView(ActionEvent event) {
         loadView("Login.fxml");
+    }
+    @FXML
+    private void loadAbsencesView() {
+        loadView("Absence.fxml");
     }
 
     /**

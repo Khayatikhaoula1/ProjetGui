@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AbsenceController" stylesheets="/css/style.css">
+    <children>
+        <VBox spacing="10" alignment="CENTER" prefWidth="600" prefHeight="400">
+            <TableView fx:id="tableAbsences">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colEtudiantId" text="ID Étudiant" prefWidth="100"/>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="120"/>
+                    <TableColumn fx:id="colMotif" text="Motif" prefWidth="250"/>
+                </columns>
+            </TableView>
+            <HBox spacing="10" alignment="CENTER">
+                <Button fx:id="btnAjouter" text="Ajouter" onAction="#ajouterAbsence"/>
+                <Button fx:id="btnModifier" text="Modifier" onAction="#modifierAbsence"/>
+                <Button fx:id="btnSupprimer" text="Supprimer" onAction="#supprimerAbsence"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

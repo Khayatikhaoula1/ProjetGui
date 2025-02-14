@@ -10,7 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
-import java.sql.Date;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,10 +20,11 @@ public class NoteController {
     @FXML private TableColumn<Note, Integer> colId;
     @FXML private TableColumn<Note, Integer> colEtudiantId;
     @FXML private TableColumn<Note, Integer> colCoursId;
+    @FXML private TableColumn<Note, String> colNomEtudiant;
     @FXML private TableColumn<Note, Double> colNote;
     @FXML private TableColumn<Note, Double> colNoteControle;
-    @FXML private TableColumn<Note, Date> colDateEvaluation;
     @FXML private TableColumn<Note, String> colResultat;
+    @FXML private TableColumn<Note, Object> colDateEvaluation; // Utilisation d'Object pour afficher le java.util.Date
 
     @FXML private Button btnAjouter;
     @FXML private Button btnModifier;
@@ -38,17 +39,18 @@ public class NoteController {
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colEtudiantId.setCellValueFactory(new PropertyValueFactory<>("etudiantId"));
         colCoursId.setCellValueFactory(new PropertyValueFactory<>("coursId"));
+        colNomEtudiant.setCellValueFactory(new PropertyValueFactory<>("nomEtudiant"));
         colNote.setCellValueFactory(new PropertyValueFactory<>("note"));
         colNoteControle.setCellValueFactory(new PropertyValueFactory<>("noteControle"));
-        colDateEvaluation.setCellValueFactory(new PropertyValueFactory<>("dateEvaluation"));
         colResultat.setCellValueFactory(new PropertyValueFactory<>("resultat"));
+        colDateEvaluation.setCellValueFactory(new PropertyValueFactory<>("dateEvaluation"));
 
         // Charger les données
         loadNotes();
     }
 
     private void loadNotes() {
-        List<Note> notes = noteService.getNotesByStudent(22); // Exemple d'ID étudiant
+        List<Note> notes = noteService.getAllNotes();
         noteList = FXCollections.observableArrayList(notes);
         tableNotes.setItems(noteList);
     }
@@ -57,7 +59,7 @@ public class NoteController {
     private void ajouterNote(ActionEvent event) {
         Note newNote = showNoteDialog(null);
         if (newNote != null) {
-            noteService.addNote(newNote);
+            noteService.ajouterNote(newNote);
             loadNotes();
         }
     }
@@ -68,7 +70,7 @@ public class NoteController {
         if (selectedNote != null) {
             Note updatedNote = showNoteDialog(selectedNote);
             if (updatedNote != null) {
-                noteService.updateNote(updatedNote);
+                noteService.modifierNote(updatedNote);
                 loadNotes();
             }
         } else {
@@ -83,7 +85,7 @@ public class NoteController {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Voulez-vous vraiment supprimer cette note ?", ButtonType.YES, ButtonType.NO);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.YES) {
-                noteService.deleteNote(selectedNote.getId());
+                noteService.supprimerNote(selectedNote.getId());
                 loadNotes();
             }
         } else {
@@ -92,37 +94,60 @@ public class NoteController {
     }
 
     private Note showNoteDialog(Note note) {
-        // Boîte de dialogue personnalisée pour ajouter/modifier une note
         Dialog<Note> dialog = new Dialog<>();
         dialog.setTitle(note == null ? "Ajouter une note" : "Modifier la note");
 
         // Champs de saisie
         TextField etudiantIdField = new TextField(note != null ? String.valueOf(note.getEtudiantId()) : "");
         TextField coursIdField = new TextField(note != null ? String.valueOf(note.getCoursId()) : "");
+        TextField nomEtudiantField = new TextField(note != null ? note.getNomEtudiant() : "");
         TextField noteField = new TextField(note != null ? String.valueOf(note.getNote()) : "");
-        TextField noteControleField = new TextField(note != null ? String.valueOf(note.getNoteControle()) : "");
-        DatePicker dateEvaluationPicker = new DatePicker(note != null ? note.getDateEvaluation().toLocalDate() : null);
+        TextField noteControleField = new TextField(note != null && note.getNoteControle() != null ? String.valueOf(note.getNoteControle()) : "");
+        TextField resultatField = new TextField(note != null ? note.getResultat() : "");
+        DatePicker dateEvaluationField = new DatePicker(note != null ?
+                note.getDateEvaluation().toInstant().atZone(ZoneId.systemDefault()).toLocalDate() : null);
 
         VBox vbox = new VBox(10,
-                new Label("Étudiant ID:"), etudiantIdField,
+                new Label("Etudiant ID:"), etudiantIdField,
                 new Label("Cours ID:"), coursIdField,
+                new Label("Nom de l'étudiant:"), nomEtudiantField,
                 new Label("Note:"), noteField,
                 new Label("Note de contrôle:"), noteControleField,
-                new Label("Date d'évaluation:"), dateEvaluationPicker
+                new Label("Résultat:"), resultatField,
+                new Label("Date d'évaluation:"), dateEvaluationField
         );
         dialog.getDialogPane().setContent(vbox);
 
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == ButtonType.OK) {
-                return new Note(
-                        note != null ? note.getId() : 0,
-                        Integer.parseInt(etudiantIdField.getText()),
-                        Integer.parseInt(coursIdField.getText()),
-                        Double.parseDouble(noteField.getText()),
-                        Double.parseDouble(noteControleField.getText()),
-                        Date.valueOf(dateEvaluationPicker.getValue())
-                );
+                try {
+                    int etudiantId = Integer.parseInt(etudiantIdField.getText().trim());
+                    int coursId = Integer.parseInt(coursIdField.getText().trim());
+                    String nomEtudiant = nomEtudiantField.getText().trim();
+                    double noteValue = Double.parseDouble(noteField.getText().trim());
+                    Double noteControle = null;
+                    if (!noteControleField.getText().trim().isEmpty()) {
+                        noteControle = Double.parseDouble(noteControleField.getText().trim());
+                    }
+                    String resultat = resultatField.getText().trim();
+                    java.util.Date dateEvaluation = java.sql.Date.valueOf(dateEvaluationField.getValue());
+
+                    return new Note(
+                            note != null ? note.getId() : 0,
+                            etudiantId,
+                            coursId,
+                            noteValue,
+                            dateEvaluation,
+                            noteControle,
+                            resultat,
+                            nomEtudiant
+                    );
+                } catch (NumberFormatException e) {
+                    showAlert("Erreur de saisie", "Veuillez vérifier que les champs numériques contiennent des valeurs valides.", Alert.AlertType.ERROR);
+                } catch (Exception e) {
+                    showAlert("Erreur", "Une erreur est survenue : " + e.getMessage(), Alert.AlertType.ERROR);
+                }
             }
             return null;
         });
