@@ -76,7 +76,7 @@ public class MainController {
 
     @FXML
     private void handleInscriptionManagement(ActionEvent event) throws IOException {
-        loadScene("inscription.fxml", "Inscription au Système");
+        loadScene("inscriptionView.fxml", "Inscription au Système");
     }
 
     /**
