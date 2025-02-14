@@ -1,7 +1,7 @@
 package Services;
 
 import Entites.Examen;
-import Utils.DataSource;  // Import the DataSource class
+import Utils.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,7 @@ public class ExamenService {
     private Connection connection;
 
     public ExamenService() {
-        this.connection = DataSource.getInstance().getConn();  // Using the DataSource class
+        this.connection = DataSource.getInstance().getConn();  // Utilisation de la classe DataSource
     }
 
     public void addExamen(Examen examen) {

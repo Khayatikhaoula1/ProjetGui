@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainController">
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.MainController">
+
+    <!-- En-tête -->
     <top>
-        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;">
+        <HBox style="-fx-background-color: linear-gradient(to right, #9299C6, #6A72A6); -fx-padding: 15;"
+              HBox.hgrow="ALWAYS">
             <ImageView fitHeight="50.0" fitWidth="50.0">
                 <Image url="@../icons/logo.png" />
             </ImageView>
@@ -33,14 +34,29 @@
             </HBox>
         </HBox>
     </top>
-    <center>
-        <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F4F9;">
-            <Button text="Gestion des Étudiants" styleClass="menu-button" onAction="#handleStudentManagement" />
-            <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCoursManagement" />
-            <Button text="Gestion des Utilisateurs" styleClass="menu-button" onAction="#handleUserManagement" />
-            <Button text="Gestion des Notes" styleClass="menu-button" onAction="#handleGradeManagement" />
-            <Button text="Gestion des inscriptions" styleClass="menu-button" onAction="#handleInscriptionManagement" />
-            <Button text="Authentification" styleClass="menu-button" onAction="#handleAuth" />
+
+    <!-- Barre latérale fixe -->
+    <left>
+        <VBox style="-fx-background-color: #2C3E50; -fx-padding: 10; -fx-spacing: 15;" prefWidth="200">
+            <Label text="Menu" style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <Button text="🏠 Dashboard" styleClass="sidebar-btn" onAction="#loadDashboardView" />
+            <Button text="👤 Utilisateurs" styleClass="sidebar-btn" onAction="#loadUserView" />
+            <Button text="📚 Cours" styleClass="sidebar-btn" onAction="#loadCoursView" />
+            <Button text="📝 Examens" styleClass="sidebar-btn" onAction="#loadExamensView" />
+            <Button text="📊 Notes" styleClass="sidebar-btn" onAction="#loadNotesView" />
+            <Button text="📝 Inscriptions" styleClass="sidebar-btn" onAction="#loadInscriptionsView" />
+            <Button text="🔑 Authentification" styleClass="sidebar-btn" onAction="#loadAuthView" />
+            <Button text="📅 Absences" styleClass="sidebar-btn" onAction="#loadAbsencesView" />
+            <Button text="🚪 Déconnexion" styleClass="logout-btn" onAction="#handleLogout"/>
         </VBox>
+    </left>
+
+    <!-- Contenu central (changera dynamiquement) -->
+    <center>
+        <StackPane fx:id="mainContent" style="-fx-background-color: #F4F4F9;">
+            <!-- Ici, le contenu des autres pages sera chargé dynamiquement -->
+        </StackPane>
     </center>
+
 </BorderPane>
