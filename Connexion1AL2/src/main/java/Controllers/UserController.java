@@ -63,6 +63,16 @@ public class UserController {
         // Charger les utilisateurs
         loadUsers();
     }
+    @FXML
+    private void handleUserSelection() {
+        User selectedUser = userTable.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            usernameField.setText(selectedUser.getUsername());
+            passwordField.setText(""); // On ne peut pas récupérer le mot de passe pour des raisons de sécurité
+            emailField.setText(selectedUser.getEmail());
+            roleComboBox.setValue(selectedUser.getRole().getNom());
+        }
+    }
 
     private void loadUsers() {
         try {

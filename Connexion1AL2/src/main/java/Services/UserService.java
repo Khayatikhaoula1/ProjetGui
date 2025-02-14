@@ -6,7 +6,9 @@ import Utils.DataSource;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserService {
     private Connection connection;
@@ -136,6 +138,47 @@ public class UserService {
             System.err.println("Erreur SQL dans getRoleByName : " + e.getMessage());
         }
         return null;
+    }
+    public int getTotalUsers() throws SQLException {
+        String query = "SELECT COUNT(*) FROM users";
+        try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+        }
+        return 0;
+    }
+
+    public Map<String, Integer> getUserCountByRole() throws SQLException {
+        Map<String, Integer> roleStats = new HashMap<>();
+        String query = "SELECT roles.nom, COUNT(users.id) FROM users JOIN roles ON users.role_id = roles.id GROUP BY roles.nom";
+        try (Statement stmt = connection.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+            while (rs.next()) {
+                roleStats.put(rs.getString(1), rs.getInt(2));
+            }
+        }
+        return roleStats;
+    }
+    public User getUserByUsernameAndPassword(String username, String password) {
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Role role = getRoleById(rs.getInt("role_id"));
+                return new User(
+                        rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        role,
+                        rs.getString("email")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;  // Si l'utilisateur n'est pas trouvé
     }
 
 }
