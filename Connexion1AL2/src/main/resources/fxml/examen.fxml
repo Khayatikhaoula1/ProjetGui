@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.Scene?>
+<?import javafx.stage.Stage?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="Controllers.ExamenController">
+    <children>
+        <!-- TableView for displaying exam data -->
+        <TableView fx:id="tableExamens" layoutX="50" layoutY="50" prefHeight="400" prefWidth="600" styleClass="data-table">
+            <columns>
+                <TableColumn fx:id="colIdExamen" text="ID Examen" prefWidth="100" styleClass="table-column"/>
+                <TableColumn fx:id="colMatiere" text="Matière" prefWidth="250" styleClass="table-column"/>
+                <TableColumn fx:id="colDateExamen" text="Date Examen" prefWidth="250" styleClass="table-column"/>
+            </columns>
+        </TableView>
+
+        <!-- Button to load examens with styling -->
+        <Button text="Charger Examens" layoutX="50" layoutY="460" onAction="#loadExamen" styleClass="action-button"/>
+
+        <!-- You can add other UI components here if needed -->
+    </children>
+</AnchorPane>
