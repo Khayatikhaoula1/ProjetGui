@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class NoteController {
-/*
+
     @FXML private TableView<Note> tableNotes;
     @FXML private TableColumn<Note, Integer> colId;
     @FXML private TableColumn<Note, Integer> colEtudiantId;
@@ -161,5 +161,5 @@ public class NoteController {
         alert.setTitle(title);
         alert.setContentText(content);
         alert.showAndWait();
-    } */
+    }
 }
