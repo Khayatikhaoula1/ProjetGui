@@ -27,16 +27,19 @@
             </Label>
             <HBox spacing="20" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                 <Label fx:id="loggedInUserLabel" text="Welcome, User!" style="-fx-text-fill: white; -fx-font-size: 16px;" />
-                <Button text="Logout" style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#handleLogout" />
+                <Button fx:id="loginLogoutButton" text="Login"
+                        style="-fx-background-color: #FF6B6B; -fx-text-fill: white; -fx-font-weight: bold;"
+                        onAction="#handleLoginLogout" />
             </HBox>
         </HBox>
     </top>
     <center>
         <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #F4F4F9;">
             <Button text="Gestion des Étudiants" styleClass="menu-button" onAction="#handleStudentManagement" />
-            <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCourseManagement" />
+            <Button text="Gestion des Cours" styleClass="menu-button" onAction="#handleCoursManagement" />
             <Button text="Gestion des Utilisateurs" styleClass="menu-button" onAction="#handleUserManagement" />
             <Button text="Gestion des Notes" styleClass="menu-button" onAction="#handleGradeManagement" />
+            <Button text="Gestion des inscriptions" styleClass="menu-button" onAction="#handleInscriptionManagement" />
             <Button text="Authentification" styleClass="menu-button" onAction="#handleAuth" />
         </VBox>
     </center>

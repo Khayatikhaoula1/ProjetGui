@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.CoursController"
+            stylesheets="/css/style.css">
+
+    <!-- Barre latérale -->
+    <VBox fx:id="sidebar" prefWidth="200" prefHeight="500">
+        <ImageView fx:id="logo" fitWidth="150" fitHeight="100" />
+        <Label text="Gestion des Cours" styleClass="title-label"/>
+        <Button fx:id="btnDashboard" text="🏠 Dashboard" styleClass="sidebar-btn"/>
+        <Button fx:id="btnCours" text="📚 Cours" styleClass="sidebar-btn"/>
+        <Button fx:id="btnEtudiants" text="👨‍🎓 Étudiants" styleClass="sidebar-btn"/>
+        <Button fx:id="btnDeconnexion" text="🚪 Déconnexion" styleClass="sidebar-btn"/>
+    </VBox>
+
+    <!-- Contenu principal -->
+    <VBox fx:id="content" layoutX="320" layoutY="20" spacing="10" prefWidth="700">
+        <Label text="📚 Liste des Cours" styleClass="header-label"/>
+        <TableView fx:id="tableCours" prefWidth="700" prefHeight="300" styleClass="custom-table">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50" />
+                <TableColumn fx:id="colNom" text="Nom" prefWidth="150" />
+                <TableColumn fx:id="colDescription" text="Description" prefWidth="250" />
+                <TableColumn fx:id="colProfesseurId" text="Professeur ID" prefWidth="100" />
+            </columns>
+        </TableView>
+
+        <HBox spacing="15">
+            <Button fx:id="btnAjouter" text="➕ Ajouter" styleClass="action-btn" onAction="#ajouterCours"/>
+            <Button fx:id="btnModifier" text="✏️ Modifier" styleClass="action-btn" onAction="#modifierCours"/>
+            <Button fx:id="btnSupprimer" text="❌ Supprimer" styleClass="action-btn" onAction="#supprimerCours"/>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

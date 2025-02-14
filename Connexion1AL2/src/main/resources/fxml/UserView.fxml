@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<VBox id="content" spacing="10" alignment="CENTER"
+      xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.UserController">
+    <!-- En-tête -->
+    <Label text="Gestion des Utilisateurs">
+        <styleClass>
+            <String fx:value="header-label" />
+        </styleClass>
+    </Label>
+
+    <!-- Formulaire d'utilisateur -->
+    <GridPane hgap="10" vgap="10">
+        <Label text="Nom d'utilisateur:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1">
+            <styleClass>
+                <String fx:value="input-field" />
+            </styleClass>
+        </TextField>
+
+        <Label text="Mot de passe:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <styleClass>
+                <String fx:value="input-field" />
+            </styleClass>
+        </PasswordField>
+
+        <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1">
+            <styleClass>
+                <String fx:value="input-field" />
+            </styleClass>
+        </TextField>
+
+        <Label text="Rôle:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="roleComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1">
+            <!-- Vous pouvez ajouter des éléments dans le contrôleur ou directement ici -->
+        </ComboBox>
+    </GridPane>
+
+    <!-- Boutons d'actions -->
+    <HBox spacing="10">
+        <Button text="Ajouter" onAction="#handleAddUser">
+            <styleClass>
+                <String fx:value="action-btn" />
+            </styleClass>
+        </Button>
+        <Button text="Update User" onAction="#handleUpdateUser">
+            <styleClass>
+                <String fx:value="action-btn" />
+            </styleClass>
+        </Button>
+        <Button text="Supprimer" onAction="#handleDeleteUser">
+            <styleClass>
+                <String fx:value="cancel-button" />
+            </styleClass>
+        </Button>
+    </HBox>
+
+    <!-- TableView stylisée -->
+    <TableView fx:id="userTable">
+        <columns>
+            <TableColumn text="ID" fx:id="idColumn" prefWidth="50"/>
+            <TableColumn text="Nom d'utilisateur" fx:id="usernameColumn" prefWidth="150"/>
+            <TableColumn text="Email" fx:id="emailColumn" prefWidth="200"/>
+            <TableColumn text="Rôle" fx:id="roleColumn" prefWidth="120"/>
+        </columns>
+        <styleClass>
+            <String fx:value="custom-table" />
+        </styleClass>
+    </TableView>
+</VBox>
